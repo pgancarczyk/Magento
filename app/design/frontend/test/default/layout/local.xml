@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<layout>
+
+    <default>
+        <reference name="header">
+            <action method="unsetChild"><name>topSearch</name></action>
+        </reference>
+        <reference name="footer">
+            <block type="core/template" name="top.search" as="topSearch" before="before_body_end" template="catalogsearch/form.mini.phtml"/>
+        </reference>
+        
+    </default>
+</layout>

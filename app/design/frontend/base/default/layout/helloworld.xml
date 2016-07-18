@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="footer">
+            <block type="helloworld/index" name="helloworld" template="helloworld/index.phtml" />
+        </reference>
+    </default>
+    <helloworld_index_index>
+        <reference name="root">
+           <action method="setTemplate">
+               <template>page/1column.phtml</template>
+           </action>
+       </reference>
+        <reference name="content">
+            <block type="helloworld/index" name="helloworld" template="helloworld/index.phtml" />
+        </reference>
+    </helloworld_index_index>
+    <helloworld_index_stores>
+        <reference name="root">
+           <action method="setTemplate">
+               <template>page/1column.phtml</template>
+           </action>
+       </reference>
+        <reference name="content">
+            <block type="helloworld/stores" name="helloworld" template="helloworld/stores.phtml" />
+        </reference>
+    </helloworld_index_stores>
+    <helloworld_index_pages>
+        <reference name="root">
+           <action method="setTemplate">
+               <template>page/1column.phtml</template>
+           </action>
+       </reference>
+        <reference name="content">
+            <block type="helloworld/pages" name="helloworld" template="helloworld/pages.phtml" />
+        </reference>
+    </helloworld_index_pages>
+</layout>

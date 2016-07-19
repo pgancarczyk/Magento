@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/productlogger.css</stylesheet></action>
+        </reference>
+    </default>
+    <productlogger_index_index>
+        <reference name="root">
+           <action method="setTemplate">
+               <template>page/1column.phtml</template>
+           </action>
+       </reference>
+        <reference name="content">
+            <block type="productlogger/index" name="productlogger" template="productlogger/index.phtml" />
+        </reference>
+    </productlogger_index_index>
+</layout>

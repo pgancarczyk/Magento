@@ -1,0 +1,9 @@
+<?php $collection = $this->getProducts(); ?>
+<h1>Logs of specific products</h1>
+<table>
+    <thead><tr><th>Date bought</th><th>SKU</th><th>Product ID</th><th>Product name</th><th>Price</th><th>Quantity</th></tr></thead>
+    <?php foreach ($collection as $row): ?>
+        <tr><td><?php echo $row->getOrderDate(); ?></td><td><?php echo $row->getSku(); ?></td><td><?php echo $row->getProductId(); ?></td><td><?php echo $row->getProductName(); ?></td><td><?php echo $row->getPrice(); ?></td><td><?php echo $row->getQty(); ?></td></tr>
+    <?php endforeach; ?>
+</table>
+<p>At the moment logging products with SKU: <?php echo Mage::getStoreConfig('productlogger/messages/sku') ?>.</p>

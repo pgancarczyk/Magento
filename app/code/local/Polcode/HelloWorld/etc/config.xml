@@ -22,6 +22,15 @@
                 </helloworld>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Polcode_HelloWorld>
+                    <files>
+                        <default>Polcode_HelloWorld.csv</default>
+                    </files>
+                </Polcode_HelloWorld>
+            </modules>
+        </translate>
     </frontend>
     <global>
         <blocks>
@@ -29,5 +38,10 @@
                 <class>Polcode_HelloWorld_Block</class>
             </helloworld>
         </blocks>
+        <helpers>
+            <helloworld>
+                <class>Polcode_HelloWorld_Helper</class>
+            </helloworld>
+        </helpers>
     </global>
 </config>

@@ -1,4 +1,4 @@
-<h1>Static pages</h1>
+<h1><?php echo Mage::helper('helloworld')->__('Static pages') ?></h1>
 <ul><?php foreach($this->getPages() as $page): ?>
     <li><?php echo $page['label'] ?></li>
 <?php endforeach; ?></ul>

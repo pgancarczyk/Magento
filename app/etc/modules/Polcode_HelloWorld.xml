@@ -1,8 +1,9 @@
+<?xml version="1.0"?>
 <config>
   <modules>
-    <Cm_RedisSession>
-      <active>false</active>
-      <codePool>community</codePool>
-    </Cm_RedisSession>
+    <Polcode_HelloWorld>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Polcode_HelloWorld>
   </modules>
 </config>

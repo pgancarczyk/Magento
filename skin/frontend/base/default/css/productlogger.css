@@ -1,12 +1,13 @@
-table {
-    border-collapse: collapse;
-    margin: auto;
+p.productlogger {
+    margin-top: 20px;
 }
-td, th {
-    border: 2px solid grey;
-    padding: 5px;
+p.productlogger span {
+    font-family: monospace;
 }
-th {
-    text-align: center;
-    background: #EEE;
+input.productlogger {
+    width: 110px !important;
+    margin-right: 10px;
+}
+table.productlogger {
+    margin-bottom: 10px;
 }

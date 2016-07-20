@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
-    <default>
+    <productlogger_index_index>
         <reference name="head">
             <action method="addCss"><stylesheet>css/productlogger.css</stylesheet></action>
+            <block type="core/html_calendar" name="head.calendar" as="calendar" template="page/js/calendar.phtml"/>
+            <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name><params/><!--<if/><condition>can_load_calendar_js</condition>--></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name><!--<params/><if/><condition>can_load_calendar_js</condition>--></action>
         </reference>
-    </default>
-    <productlogger_index_index>
         <reference name="root">
            <action method="setTemplate">
                <template>page/1column.phtml</template>

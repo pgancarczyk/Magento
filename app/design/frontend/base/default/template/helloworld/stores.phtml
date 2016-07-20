@@ -1,4 +1,4 @@
-<h1><?php echo Mage::helper('helloworld')->__('Stores'); ?></h1>
+<h1><?php echo $this->__('Stores'); ?></h1>
 <?php foreach ($this->getWebsites() as $website): ?>
     <ul><h3><?php echo $website->getName() ?></h3>
     <?php foreach ($website->getGroups() as $group): ?>

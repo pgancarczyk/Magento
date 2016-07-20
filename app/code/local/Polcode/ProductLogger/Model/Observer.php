@@ -13,13 +13,13 @@ class Polcode_ProductLogger_Model_Observer extends Mage_Core_Model_Abstract
                 continue;
             }
             $model = Mage::getModel('productlogger/productlogger');
-            $model->setSku($sku);
-            $model->setProductId($item->getItemId());
-            $model->setProductName($item->getName());
-            $model->setPrice($item->getPrice());
-            $model->setQty($item->getQtyOrdered());
-            $model->setOrderDate($item->getCreatedAt());
-            $model->save();                 
+            $model->setSku($sku)
+            ->setProductId($item->getItemId())
+            ->setProductName($item->getName())
+            ->setPrice($item->getPrice())
+            ->setQty($item->getQtyOrdered())
+            ->setOrderDate($item->getCreatedAt())
+            ->save();                 
         }
     }
 }

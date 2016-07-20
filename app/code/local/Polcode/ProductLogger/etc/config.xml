@@ -22,6 +22,15 @@
                 </productlogger>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Polcode_ProductLogger>
+                    <files>
+                        <default>Polcode_ProductLogger.csv</default>
+                    </files>
+                </Polcode_ProductLogger>
+            </modules>
+        </translate>
     </frontend>
     <global>
         <blocks>
@@ -70,21 +79,4 @@
             </sales_order_place_after>
         </events>
     </global>
-    <adminhtml>
-        <acl>
-            <resources>
-                <admin>
-                    <children>
-                        <config>
-                            <children>
-                                <productlogger>
-                                    <title>Product logger options</title>
-                                </productlogger>
-                            </children>
-                        </config>
-                    </children>
-                </admin>
-            </resources>
-        </acl>
-    </adminhtml>
 </config>

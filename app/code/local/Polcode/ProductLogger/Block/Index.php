@@ -17,11 +17,11 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
         $collection = Mage::getModel('productlogger/productlogger')->getCollection()->setPageSize(10)->setCurPage(1);
         if(null !== ($this->getRequest()->getParam('date_from')))
         {
-            $collection->addFieldToFilter('order_date', array("from" => $this->getRequest()->getParam('date_from')));
+            $collection->addFieldToFilter('order_date', array("from" => date("Y-m-d H:i:s", strtotime($this->getRequest()->getParam('date_from')))));
         }
         if(null !== ($this->getRequest()->getParam('date_to')))
         {
-            $collection->addFieldToFilter('order_date', array("to" => $this->getRequest()->getParam('date_to')));
+            $collection->addFieldToFilter('order_date', array("to" => date("Y-m-d H:i:s", strtotime($this->getRequest()->getParam('date_to')))));;
         }
         if(null !== ($this->getRequest()->getParam('limit')))
         {
@@ -31,6 +31,7 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
         {
             $collection->setCurPage(intval($this->getRequest()->getParam('p')));
         }
+        Mage::log($collection->getSelect()->__toString());
         return $collection;
     }
     public function getButtonHtml() {

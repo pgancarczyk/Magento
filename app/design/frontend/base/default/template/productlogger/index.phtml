@@ -8,15 +8,15 @@
 </table>
 <?php echo $this->getPagerHtml() ?>
 <form class="productlogger">
-    <input type="text" name="date_to" id="date_to" class="input-text productlogger" placeholder="date to" <?php echo ((null !== ($this->getRequest()->getParam('date_from'))) ? 'value="' . $this->getRequest()->getParam('date_from') . '"' : "") ?>> 
-    <input type="text" name="date_from" id="date_from" class="input-text productlogger" placeholder="date from" <?php echo ((null !== ($this->getRequest()->getParam('date_to'))) ? 'value="' . $this->getRequest()->getParam('date_to') . '"' : "") ?>>
+    <input type="text" name="date_from" id="date_to" class="input-text productlogger" placeholder="date from" <?php echo ((null !== ($this->getRequest()->getParam('date_from'))) ? 'value="' . $this->getRequest()->getParam('date_from') . '"' : "") ?>> 
+    <input type="text" name="date_to" id="date_from" class="input-text productlogger" placeholder="date to" <?php echo ((null !== ($this->getRequest()->getParam('date_to'))) ? 'value="' . $this->getRequest()->getParam('date_to') . '"' : "") ?>>
     <?php echo $this->getButtonHtml() ?>
 </form>
 <p class="productlogger"><?php echo $this->__('At the moment logging products with SKU') ?>: <span><?php echo Mage::getStoreConfig('productlogger/messages/sku') ?></span>.</p>
 <script type="text/javascript">// <![CDATA[
 Calendar.setup({
     inputField : 'date_from',
-    ifFormat : '%Y-%e-%m',
+    ifFormat : '%Y-%m-%e',
     button : 'date_from_trig',
     align : 'Bl',
     singleClick : true
@@ -24,7 +24,7 @@ Calendar.setup({
 
 Calendar.setup({
     inputField : 'date_to',
-    ifFormat : '%Y-%e-%m',
+    ifFormat : '%Y-%m-%e',
     button : 'date_to_trig',
     align : 'Bl',
     singleClick : true

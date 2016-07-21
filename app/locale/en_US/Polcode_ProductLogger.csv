@@ -5,5 +5,7 @@
 "Product name","Product name"
 "Price","Price"
 "Quantity","Quantity"
-"At the moment logging products with SKU","At the moment logging products with SKU"
+"At the moment logging products with SKU: <span>%s</span>.","At the moment logging products with SKU: <span>%s</span>."
 "Filter","Filter"
+"No products logged within the chosen interval.","No products logged within the chosen interval."
+"No products logged so far.","No products logged so far."

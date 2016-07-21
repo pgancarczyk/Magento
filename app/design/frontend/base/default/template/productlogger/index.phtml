@@ -1,5 +1,6 @@
 <?php $collection = $this->getProducts(); ?>
 <h1><?php echo $this->__('Logs of specific products') ?></h1>
+<?php if($collection->getSize()): ?>
 <table class="data-table productlogger">
     <thead><tr><th><?php echo $this->__('Date bought') ?></th><th><?php echo $this->__('SKU') ?></th><th><?php echo $this->__('Product ID') ?></th><th><?php echo $this->__('Product name') ?></th><th><?php echo $this->__('Price') ?></th><th><?php echo $this->__('Quantity') ?></th></tr></thead>
     <?php foreach ($collection as $row): ?>
@@ -7,12 +8,15 @@
     <?php endforeach; ?>
 </table>
 <?php echo $this->getPagerHtml() ?>
+<?php else: ?>
+    <p class="productlogger"><?php echo ( ( (null !== ($this->getRequest()->getParam('date_from'))) || (null !== ($this->getRequest()->getParam('date_to'))) ) ? $this->__('No products logged within the chosen interval.') : $this->__('No products logged so far.') ) ?></p>
+<?php endif ?>
 <form class="productlogger">
     <input type="text" name="date_from" id="date_to" class="input-text productlogger" placeholder="date from" <?php echo ((null !== ($this->getRequest()->getParam('date_from'))) ? 'value="' . $this->getRequest()->getParam('date_from') . '"' : "") ?>> 
     <input type="text" name="date_to" id="date_from" class="input-text productlogger" placeholder="date to" <?php echo ((null !== ($this->getRequest()->getParam('date_to'))) ? 'value="' . $this->getRequest()->getParam('date_to') . '"' : "") ?>>
     <?php echo $this->getButtonHtml() ?>
 </form>
-<p class="productlogger"><?php echo $this->__('At the moment logging products with SKU') ?>: <span><?php echo Mage::getStoreConfig('productlogger/messages/sku') ?></span>.</p>
+<p class="productlogger"><?php echo $this->__('At the moment logging products with SKU: <span>%s</span>.', Mage::getStoreConfig('productlogger/messages/sku')) ?></p>
 <script type="text/javascript">// <![CDATA[
 Calendar.setup({
     inputField : 'date_from',

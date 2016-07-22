@@ -9,7 +9,7 @@ class Polcode_Pdfbooklet_Block_Category extends Mage_Core_Block_Template
         if($pdf) {
             if ($pdf !== "")
             {
-                return '<a target=_blank href="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA, array('is_secure' => Mage::app()->getStore()->isCurrentlySecure())).'/booklets/'.$pdf.'">'.$pdf.'</a>';
+                return '<a target=_blank href="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA, array('is_secure' => Mage::app()->getStore()->isCurrentlySecure())).'booklets/'.$pdf.'">'.$pdf.'</a>';
             }
         }
         else

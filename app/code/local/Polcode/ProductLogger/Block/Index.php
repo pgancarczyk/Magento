@@ -9,9 +9,21 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
         $this->setChild('pager', $pager);
         return $this;
     }
-    public function getInputValue($parameter)
+    public function getDateFrom()
     {
-        return ( $this->getRequest()->getParam($parameter) ? $this->getRequest()->getParam($parameter) : "");
+        return ( $this->getRequest()->getParam('date_from') ? $this->getRequest()->getParam('date_from') : "");  
+    }
+    public function getDateTo()
+    {
+        return ( $this->getRequest()->getParam('date_to') ? $this->getRequest()->getParam('date_to') : "");  
+    }
+    public function getCurPage()
+    {
+        return $this->getRequest()->getParam('p');
+    }
+    public function getPageSize()
+    {
+        return $this->getRequest()->getParam('limit');
     }
     public function getPagerHtml()
     {
@@ -21,21 +33,21 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
     {
         $params = $this->getRequest()->getParams();
         $collection = Mage::getModel('productlogger/productlogger')->getCollection()->setPageSize(10)->setCurPage(1);
-        if( isset($params['date_from']) )
+        if( $this->getDateFrom() )
         {
-            $collection->addFieldToFilter('order_date', array("from" => date("Y-m-d H:i:s", strtotime($params['date_from']))));
+            $collection->addFieldToFilter('order_date', array("from" => date("Y-m-d H:i:s", strtotime($this->getDateFrom()))));
         }
-        if( isset($params['date_to']) )
+        if( $this->getDateTo() )
         {
-            $collection->addFieldToFilter('order_date', array("to" => date("Y-m-d H:i:s", strtotime($params['date_to']))));
+            $collection->addFieldToFilter('order_date', array("to" => date("Y-m-d H:i:s", strtotime($this->getDateTo()))));
         }
-        if( isset($params['limit']) )
+        if( $this->getPageSize() )
         {
-            $collection->setPageSize(intval($params['limit']));
+            $collection->setPageSize(intval($this->getPageSize()));
         }
-        if( isset($params['p']) )
+        if( $this->getCurPage() )
         {
-            $collection->setCurPage(intval($params['p']));                                 
+            $collection->setCurPage(intval($this->getCurPage()));                                 
         }
         return $collection;
     }

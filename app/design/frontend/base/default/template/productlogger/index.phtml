@@ -13,8 +13,8 @@
     <p class="productlogger"><?php echo ( ( !($this->getRequest()->getParam('date_from')) || !($this->getRequest()->getParam('date_to')) ) ? $this->__('No products logged within the chosen interval.') : $this->__('No products logged so far.') ) ?></p>
 <?php endif ?>
 <form class="productlogger">
-    <input type="text" name="date_from" id="date_to" class="input-text productlogger" placeholder="<?php echo $this->__("date from") ?>" value="<?php echo $this->getInputValue("date_from") ?>"> 
-    <input type="text" name="date_to" id="date_from" class="input-text productlogger" placeholder="<?php echo $this->__("date to") ?>" value="<?php echo $this->getInputValue("date_to") ?>">
+    <input type="text" name="date_from" id="date_from" class="input-text productlogger" placeholder="<?php echo $this->__("date from") ?>" value="<?php echo $this->getDateFrom() ?>"> 
+    <input type="text" name="date_to" id="date_to" class="input-text productlogger" placeholder="<?php echo $this->__("date to") ?>" value="<?php echo $this->getDateTo() ?>">
     <?php echo $this->getButtonHtml() ?>
 </form>
 <p class="productlogger"><?php echo $this->__('At the moment logging products with SKU: <span>%s</span>.', $loggedSku) ?></p>

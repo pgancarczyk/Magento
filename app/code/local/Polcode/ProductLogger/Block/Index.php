@@ -11,7 +11,7 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
     }
     public function getInputValue($parameter)
     {
-        return ( $this->getRequest()->getParam($parameter) ? 'value="' . $this->getRequest()->getParam($parameter) . '"' : "");
+        return ( $this->getRequest()->getParam($parameter) ? $this->getRequest()->getParam($parameter) : "");
     }
     public function getPagerHtml()
     {
@@ -19,22 +19,23 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
     }
     public function getProducts()
     {
+        $params = $this->getRequest()->getParams();
         $collection = Mage::getModel('productlogger/productlogger')->getCollection()->setPageSize(10)->setCurPage(1);
-        if( $this->getRequest()->getParam('date_from') and $this->getRequest()->getParam('date_from') !== '' )
+        if( isset($params['date_from']) )
         {
-            $collection->addFieldToFilter('order_date', array("from" => date("Y-m-d H:i:s", strtotime($this->getRequest()->getParam('date_from')))));
+            $collection->addFieldToFilter('order_date', array("from" => date("Y-m-d H:i:s", strtotime($params['date_from']))));
         }
-        if( $this->getRequest()->getParam('date_to') and $this->getRequest()->getParam('date_to') !== '' )
+        if( isset($params['date_to']) )
         {
-            $collection->addFieldToFilter('order_date', array("to" => date("Y-m-d H:i:s", strtotime($this->getRequest()->getParam('date_to')))));
+            $collection->addFieldToFilter('order_date', array("to" => date("Y-m-d H:i:s", strtotime($params['date_to']))));
         }
-        if( $this->getRequest()->getParam('limit') )
+        if( isset($params['limit']) )
         {
-            $collection->setPageSize(intval($this->getRequest()->getParam('limit')));
+            $collection->setPageSize(intval($params['limit']));
         }
-        if( $this->getRequest()->getParam('p') )
+        if( isset($params['p']) )
         {
-            $collection->setCurPage(intval($this->getRequest()->getParam('p')));
+            $collection->setCurPage(intval($params['p']));                                 
         }
         return $collection;
     }

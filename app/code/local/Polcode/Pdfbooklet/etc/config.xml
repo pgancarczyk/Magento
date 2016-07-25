@@ -71,7 +71,7 @@
                     <class>Polcode_Pdfbooklet_Model_Resource_Setup</class>
                 </setup>
                 <connection>
-                    <use>core_setup</use>
+                    <use>Mage_Catalog_Model_Resource_Setup</use>
                 </connection>
             </pdfbooklet_setup>
         </resources>

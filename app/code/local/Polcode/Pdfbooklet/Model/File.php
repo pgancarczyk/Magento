@@ -15,7 +15,8 @@ class Polcode_Pdfbooklet_Model_File extends Mage_Eav_Model_Entity_Attribute_Back
         $io->checkAndCreateFolder(Mage::getBaseDir('media') . DS . 'booklets'); 
         $path = Mage::getBaseDir('media') . DS . 'booklets';
 
-        try {
+        try
+        {
             $uploader = new Mage_Core_Model_File_Uploader($this->getAttribute()->getName());
             $uploader->setAllowedExtensions(array('pdf'));
             $uploader->setAllowRenameFiles(true);
@@ -23,11 +24,10 @@ class Polcode_Pdfbooklet_Model_File extends Mage_Eav_Model_Entity_Attribute_Back
 
             $object->setData($this->getAttribute()->getName(), $result['file']);
             $this->getAttribute()->getEntity()->saveAttribute($object, $this->getAttribute()->getName());
-        } catch (Exception $e) {
-            if ($e->getCode() != Mage_Core_Model_File_Uploader::TMP_NAME_EMPTY) {
-                Mage::logException($e);
-            }
-            return;
+        } 
+        catch (Exception $e)
+        {
+            Mage::logException($e);
         }        
     }    
 }

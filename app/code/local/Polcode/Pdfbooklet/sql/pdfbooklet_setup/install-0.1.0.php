@@ -1,7 +1,8 @@
 <?php
+Mage::log('dupa');
 $installer = $this;
 $installer->startSetup();
-$attributeCategory = array(
+$installer->addAttribute('catalog_category', 'pdfbooklet', array(
     'type'          =>  'varchar',
     'label'         =>  'Pdf booklet',
     'input'         =>  'file',
@@ -14,8 +15,8 @@ $attributeCategory = array(
     'position'      =>  100,
     'visible'       =>  true,
     'group'         =>  "General Information"
-);
-$attributeProduct = array(
+));
+$installer->addAttribute('catalog_product', 'pdfbooklet', array(
     'type'          =>  'varchar',
     'label'         =>  'Pdf booklet',
     'input'         =>  'file',
@@ -28,11 +29,5 @@ $attributeProduct = array(
     'position'      =>  100,
     'visible'       =>  true,
     'group'         =>  "General"
-);
-$installer->addAttribute('catalog_category', 'pdfbooklet', $attributeCategory);
-$installer->addAttribute('catalog_product', 'pdfbooklet', $attributeProduct);
-$attributeCategoryId = $installer->getAttributeId('catalog_category', 'pdfbooklet');
-$installer->run("update `catalog_eav_attribute` set `frontend_input_renderer` = 'pdfbooklet/input' where `attribute_id` = ".$attributeCategoryId);
-$attributeProductId = $installer->getAttributeId('catalog_product', 'pdfbooklet');
-$installer->run("update `catalog_eav_attribute` set `frontend_input_renderer` = 'pdfbooklet/input' where `attribute_id` = ".$attributeProductId);
+));
 $installer->endSetup();

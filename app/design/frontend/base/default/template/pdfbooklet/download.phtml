@@ -1,1 +1,1 @@
-<p><?php echo $this->__("Booklet file: ") . $this->getPdf() ?></p>
+<p><?php echo $this->__("Booklet file: ").($this->getPdf() ? $this->getPdf() : $this->__("no pdf booklet available at the moment")) ?></p>

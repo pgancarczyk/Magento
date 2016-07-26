@@ -9,48 +9,75 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
         $this->setChild('pager', $pager);
         return $this;
     }
+    
+    private function validateDate($date)
+    {
+        list($y, $m, $d) = explode('-', $date);
+        if(checkdate($m, $d, $y))
+        {
+            return $date;
+        }
+        return false;
+    }   
+    
     public function getDateFrom()
     {
-        return ( $this->getRequest()->getParam('date_from') ? $this->getRequest()->getParam('date_from') : "");  
+        if( $dateFrom = $this->validateDate($this->getRequest()->getParam('date_from')) )
+        {
+            return date("Y-m-d H:i:s", strtotime($dateFrom));       
+        }
+        return "";
     }
+    
     public function getDateTo()
     {
-        return ( $this->getRequest()->getParam('date_to') ? $this->getRequest()->getParam('date_to') : "");  
+        if( $dateFrom = $this->validateDate($this->getRequest()->getParam('date_to')) )
+        {
+            return date("Y-m-d H:i:s", strtotime($dateTo)); 
+        }
+        return "";
     }
+    
     public function getCurPage()
     {
-        return $this->getRequest()->getParam('p');
+        if( $curPage = $this->getRequest()->getParam('p') )
+        {
+           return intval($curPage);
+        }
+        return 1;
     }
+    
     public function getPageSize()
     {
-        return $this->getRequest()->getParam('limit');
+        if( $pageSize = $this->getRequest()->getParam('limit') )
+        {
+           return intval($pageSize);
+        }
+        return 10;
     }
+    
     public function getPagerHtml()
     {
         return $this->getChildHtml('pager');
     }
+    
     public function getProducts()
     {
         $params = $this->getRequest()->getParams();
-        $collection = Mage::getModel('productlogger/productlogger')->getCollection()->setPageSize(10)->setCurPage(1);
+        $collection = Mage::getModel('productlogger/productlogger')->getCollection();
         if( $this->getDateFrom() )
         {
-            $collection->addFieldToFilter('order_date', array("from" => date("Y-m-d H:i:s", strtotime($this->getDateFrom()))));
+            $collection->addFieldToFilter('order_date', array("from" => $this->getDateFrom()));
         }
         if( $this->getDateTo() )
         {
-            $collection->addFieldToFilter('order_date', array("to" => date("Y-m-d H:i:s", strtotime($this->getDateTo()))));
+            $collection->addFieldToFilter('order_date', array("to" => $this->getDateTo()));
         }
-        if( $this->getPageSize() )
-        {
-            $collection->setPageSize(intval($this->getPageSize()));
-        }
-        if( $this->getCurPage() )
-        {
-            $collection->setCurPage(intval($this->getCurPage()));                                 
-        }
+        $collection->setPageSize($this->getPageSize());
+        $collection->setCurPage($this->getCurPage());                                 
         return $collection;
     }
+    
     public function getButtonHtml()
     {
         $button = Mage::app()->getLayout()->createBlock('adminhtml/widget_button');
@@ -61,4 +88,5 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
         ));
         return $button->toHtml();
     }
+    
 }

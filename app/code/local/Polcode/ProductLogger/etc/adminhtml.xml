@@ -15,8 +15,27 @@
                             </config>
                         </children>
                     </system>
+                    <sales>
+                        <children>
+                            <productlogger translate="title">
+                                <title>Manage ProductLogger</title>
+                                <sort_order>100</sort_order>
+                            </productlogger>
+                        </children>
+                    </sales>
                 </children>
             </admin>
         </resources>
     </acl>
+    <menu>
+        <sales>
+            <children>
+                <productlogger translate="title" module="productlogger">
+                    <title>Edit ProductLoggger logs</title>
+                    <action>adminhtml/productlogger/index</action>
+                    <sort_order>100</sort_order>
+                </productlogger>
+            </children>
+        </sales>
+    </menu>
 </config>

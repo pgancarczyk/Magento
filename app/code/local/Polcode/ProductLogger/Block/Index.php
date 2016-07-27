@@ -12,10 +12,13 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
     
     private function validateDate($date)
     {
-        list($y, $m, $d) = explode('-', $date);
-        if(checkdate($m, $d, $y))
+        if($date)
         {
-            return $date;
+           list($y, $m, $d) = explode('-', $date);
+           if(checkdate($m, $d, $y))
+           {
+               return $date;
+           }           
         }
         return false;
     }   
@@ -31,7 +34,7 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
     
     public function getDateTo()
     {
-        if( $dateFrom = $this->validateDate($this->getRequest()->getParam('date_to')) )
+        if( $dateTo = $this->validateDate($this->getRequest()->getParam('date_to')) )
         {
             return date("Y-m-d H:i:s", strtotime($dateTo)); 
         }
@@ -40,18 +43,18 @@ class Polcode_ProductLogger_Block_Index extends Mage_Core_Block_Template
     
     public function getCurPage()
     {
-        if( $curPage = $this->getRequest()->getParam('p') )
+        if( $curPage = intval($this->getRequest()->getParam('p')) )
         {
-           return intval($curPage);
+           return $curPage;
         }
         return 1;
     }
     
     public function getPageSize()
     {
-        if( $pageSize = $this->getRequest()->getParam('limit') )
+        if( $pageSize = intval($this->getRequest()->getParam('limit')) )
         {
-           return intval($pageSize);
+           return $pageSize;
         }
         return 10;
     }

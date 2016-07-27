@@ -84,10 +84,49 @@
             <productlogger>
                 <use>admin</use>
                 <args>
-                    <module>Polcode_ProductLogger</module>
-                    <frontName>productlogger</frontName>
+                  <module>Polcode_ProductLogger</module>
+                  <frontName>admin_productlogger</frontName>
                 </args>
             </productlogger>
         </routers>
-    </admin>
+      </admin>
+      <adminhtml>
+        <translate>
+            <modules>
+                <Polcode_ProductLogger>
+                    <files>
+                        <default>Polcode_ProductLogger.csv</default>
+                    </files>
+                </Polcode_ProductLogger>
+            </modules>
+        </translate>
+            <menu>
+              <sales>
+                    <children>
+                      <productloggerbackend module="productlogger">
+                            <title>ProductLogger logs</title>
+                            <sort_order>100</sort_order>
+                            <action>admin_productlogger/adminhtml_productloggerbackend</action>
+                      </productloggerbackend>
+                    </children>
+              </sales>
+            </menu>
+            <acl>
+              <resources>
+                    <admin>
+                      <children>
+                            <productlogger translate="title" module="productlogger">
+                              <title>ProductLogger</title>
+                              <sort_order>1000</sort_order>
+                              <children>
+                      <productloggerbackend translate="title">
+                            <title>ProductLogger logs</title>
+                      </productloggerbackend>
+                              </children>
+                            </productlogger>
+                      </children>
+                    </admin>
+              </resources>
+            </acl>
+      </adminhtml>
 </config>

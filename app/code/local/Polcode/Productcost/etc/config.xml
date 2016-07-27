@@ -5,32 +5,24 @@
             <version>0.1.0</version>
         </Polcode_Productcost>
     </modules>
-    <adminhtml>
-        <events>
-            <core_block_abstract_to_html_before>
-                <observers>
-                    <productcost_observer>
-                        <type>singleton</type>
-                        <class>productcost/observer</class>
-                        <method>beforeBlockToHtml</method>
-                    </productcost_observer>
-                </observers>
-            </core_block_abstract_to_html_before>
-            <eav_collection_abstract_load_before>
-                <observers>
-                    <productcost_observer>
-                        <class>productcost/observer</class>
-                        <method>beforeCollectionLoad</method>
-                    </productcost_observer>
-                </observers>
-            </eav_collection_abstract_load_before>
-        </events>
-    </adminhtml>
     <global>
-        <models>
-            <productcost>
-                <class>Polcode_Productcost_Model</class>
-            </productcost>
-        </models>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_grid>Polcode_Productcost_Block_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
     </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Polcode_Productcost>
+                    <files>
+                        <default>Polcode_Productcost.csv</default>
+                    </files>
+                </Polcode_Productcost>
+            </modules>
+        </translate>
+    </adminhtml>
 </config>

@@ -3,7 +3,7 @@ class Polcode_Productcost_Block_Renderer extends Mage_Adminhtml_Block_Widget_Gri
 {
     public function render(Varien_Object $row)
     {
-        $value =  $row->getData($this->getColumn()->getIndex());
-        return floatval($value)+20;
+        $value = $row->getPrice()+20;
+        return Mage::helper('core')->currency($value, true, false);
     } 
 }

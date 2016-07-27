@@ -7,8 +7,9 @@ class Polcode_Productcost_Block_Grid extends Mage_Adminhtml_Block_Catalog_Produc
             'type'      => 'currency',
             'header'    => $this->__("Cost"),
             'align'     => 'right',
-            'index'     => 'price',
+            'index'     => 'cost',
             'width'     => '40',
+            'sortable'  => false,
             'renderer'  => 'Polcode_Productcost_Block_Renderer'
         ), 'price'); 
         return parent::_prepareColumns();

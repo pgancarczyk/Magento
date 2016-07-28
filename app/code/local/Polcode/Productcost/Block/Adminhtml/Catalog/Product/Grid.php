@@ -1,5 +1,5 @@
 <?php 
-class Polcode_Productcost_Block_Grid extends Mage_Adminhtml_Block_Catalog_Product_Grid
+class Polcode_Productcost_Block_Adminhtml_Catalog_Product_Grid extends Mage_Adminhtml_Block_Catalog_Product_Grid
 {
     protected function _prepareColumns()
     {

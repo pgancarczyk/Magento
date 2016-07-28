@@ -9,7 +9,7 @@
         <blocks>
             <adminhtml>
                 <rewrite>
-                    <catalog_product_grid>Polcode_Productcost_Block_Grid</catalog_product_grid>
+                    <catalog_product_grid>Polcode_Productcost_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
                 </rewrite>
             </adminhtml>
         </blocks>

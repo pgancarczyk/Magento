@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_catalog_product_related>
+        <reference name="related_grid_serializer">
+            <action method="addColumnInputName">
+                <input_name>essential</input_name>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_related>
+</layout>

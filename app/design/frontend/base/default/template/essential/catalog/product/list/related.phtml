@@ -13,7 +13,7 @@
                         <input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
                     <?php endif; ?>
                 <?php endif; ?>
-                <div class="product<?php echo $this->getEssentialClass($_item) ?>">
+                <div class="product<?php if($_item->getEssential()): ?> essential<?php endif; ?>">
                     <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
                     <div class="product-details">
                         <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>

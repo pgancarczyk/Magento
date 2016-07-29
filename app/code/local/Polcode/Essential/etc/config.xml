@@ -30,11 +30,6 @@
                     <catalog_product_edit_tab_related>Polcode_Essential_Block_Adminhtml_Catalog_Product_Edit_Tab_Related</catalog_product_edit_tab_related>
                 </rewrite>
             </adminhtml>
-            <catalog>
-                <rewrite>
-                    <product_list_related>Polcode_Essential_Block_Catalog_Product_List_Related</product_list_related>
-                </rewrite>
-            </catalog>
             <essential>
                 <class>Polcode_Essential_Block</class>
             </essential>

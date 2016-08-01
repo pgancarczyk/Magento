@@ -43,7 +43,6 @@ class Polcode_ProductLogger_Adminhtml_ProductloggerbackendController extends Mag
             catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($this->__('An error occurred while saving the entry.'));
             }
-//            Mage::getSingleton('adminhtml/session')->setBazData($postData);
             $this->_redirectReferer();
         }
     }
@@ -64,12 +63,7 @@ public function deleteAction()
 
         return $this->_redirect('*/*/');
     }
-    
-//     public function messageAction()
-//    {
-//        $data = Mage::getModel('foo_bar/baz')->load($this->getRequest()->getParam('id'));
-//        echo $data->getContent();
-//    }   
+     
     public function editAction()
     {
         $this->_title('ProductLogger')

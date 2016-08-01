@@ -1,5 +1,4 @@
 <?php
-Mage::log('dupa');
 $installer = $this;
 $installer->startSetup();
 $installer->addAttribute('catalog_category', 'pdfbooklet', array(

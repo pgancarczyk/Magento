@@ -1,0 +1,54 @@
+<config>
+    <tabs>
+        <polcode>
+            <label>Polcode</label>
+            <sort_order>99</sort_order>
+        </polcode>
+    </tabs>
+    <sections>
+        <sugarexport>
+            <label>SugarCRM Export options</label>
+            <tab>polcode</tab>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <messages>
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <url>
+                            <label>SugarCRM Root URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </url>
+                        <username>
+                            <label>SugarCRM Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </username>
+                        <password>
+                            <label>SugarCRM Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </password>
+                    </fields>                   
+                </messages>
+            </groups>
+        </sugarexport>
+    </sections>
+</config>

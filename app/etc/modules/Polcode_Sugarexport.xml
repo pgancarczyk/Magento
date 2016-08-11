@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Polcode_Sugarexport>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Polcode_Sugarexport>
+  </modules>
+</config>

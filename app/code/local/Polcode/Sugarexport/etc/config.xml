@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Polcode_Sugarexport>
+            <version>0.1.0</version>
+        </Polcode_Sugarexport>
+    </modules>
+    <global>
+        <models>
+            <sugarexport>
+                <class>Polcode_Sugarexport_Model</class>
+            </sugarexport>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <sugarexport>
+                <schedule>
+                    <cron_expr>0 0 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>sugarexport/observer::export</model>
+                </run>
+            </sugarexport>
+        </jobs>
+    </crontab>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <sugarexport>
+                                            <title>Polcode - All</title>
+                                        </sugarexport>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

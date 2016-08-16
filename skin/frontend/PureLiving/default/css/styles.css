@@ -32,7 +32,6 @@ body          {
 					font-family: Arial, sans-serif;
 					font-size: 11px;
 					color: #333;}	
-}
 
 
 img {
@@ -116,7 +115,6 @@ ul,ol         { list-style:none; }
 					padding: 0 24px;
 					margin: 0 auto;
 					background: #fff;}    
-}
 .page-print { background:#fff; padding:20px; text-align:left; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { padding:20px; text-align:left; }
@@ -125,11 +123,11 @@ ul,ol         { list-style:none; }
 
 /* Base Columns */
 .col-left { float:left; width:230px; border:1px solid #ddd; padding:5px 5px 0; }
-.col-main { float:left; width:736px; border:1px solid #ddd; padding:5px; }
+.col-main { float:left; width:736px; }
 .col-right { float:right; width:230px; border:1px solid #ddd; padding:5px 5px 0; }
 
 /* 1 Column Layout */
-.col1-layout .col-main { float:none; width:auto; }
+.col1-layout .col-main { width:auto; }
 
 /* 2 Columns Layout */
 .col2-left-layout .col-main { float:right; }
@@ -447,6 +445,91 @@ tr.summary-details-excluded { font-style:italic; }
 
 .divider { clear:both; display:block; font-size:0; line-height:0; height:1px; margin:10px 0; background:#ddd; text-indent:-999em; overflow:hidden; }
 
+/* - baner - */
+
+#baner {
+					width: 976px;
+					height: 349px;
+					margin: 9px 0 0 0;
+					background: #ebebeb;}
+
+/* - box-3-offer - */
+
+#box-3-offer {
+					margin: 17px 0 0 0;
+					padding: 19px 0 0 0;
+					height: 161px;
+					background: #fff url(../images/line.jpg) top center no-repeat;}
+					
+.box-3-offer-column {
+					float: left;
+					/**/height: 161px;
+					width: 320px;
+					background: #ebebeb;
+					margin: 0 8px 0 0;}	
+
+.box-3-offer-last {
+					margin: 0;}	
+
+/* - box-slide-offer - */
+			
+#box-slide-offer {
+					margin: 27px 0 0 0;
+					padding: 13px 0 0 0;
+					position: relative;
+					height: 306px;
+					background: #fff url(../images/line.jpg) top center no-repeat;}	
+
+#box-slide-offer button {
+					border: 0px solid #fff;
+					background: #fff;}					
+
+.box-slide-product {
+					border-bottom: 1px solid #ccc;
+					width: 160px;
+					height: 285px;
+					padding: 0 0 4px 0;
+					text-align: center;
+					margin: 0 10px;}
+					
+.box-title {
+					font-weight: normal;
+					text-align: center;
+					margin: 0 0 19px 0;
+					color: #555;}					
+					
+.slider-product-title {
+					font-weight: normal;
+					height: auto;
+					margin: 5px 10px 2px 10px;
+					height: 28px;
+					color: #444;
+					font-size: 11px;
+					min-height: 28px;}	
+					
+.box-slide-description {
+					font-size: 10px;
+					line-height: 11px;
+					color: #8f8f8f;
+					margin: 0 0 3px 0;}
+
+.box-slide-price, .box-slide-price-discound {
+					font-weight: bold;
+					font-size: 11px;
+					margin: 0 0 2px 0;}	
+					
+.box-slide-price-discound {
+					text-decoration: line-through;}					
+
+.box-slide-special-price {
+					font-weight: bold;
+					color: #a80d2c;
+					margin: 1px 0 2px 0;}	
+
+.clr {
+					clear: both;
+					height: 1px;}	
+
 /* Noscript Notice */
 .noscript { border:1px solid #ddd; border-width:0 0 1px; background:#ffff90; font-size:12px; line-height:1.25; text-align:center; color:#2f2f2f; }
 .noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; background:url(../images/i_notice.gif) 20px 50% no-repeat; }
@@ -469,13 +552,12 @@ tr.summary-details-excluded { font-style:italic; }
 .header-container {
 					padding: 17px 0 0 0;
 					background: #fff url(../images/bg-header.jpg) top left no-repeat;}
-}
 .header .logo { float:left; text-decoration:none !important; }
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 .header h1.logo { 
 					float: left;
 					width: 300px;
-					margin: 0 0 0 9px;} }
+					margin: 0 0 0 9px;} 
 .header .welcome-msg { font-weight:bold; text-align:right; }
 .header .welcome-msg a {}
 .header .links { 
@@ -483,7 +565,7 @@ tr.summary-details-excluded { font-style:italic; }
 					padding: 0;
 					float: left;
 					list-style: none;}
-}
+
 .header ul.links {
 					margin: 5px 0 0 0;
 					padding: 0;

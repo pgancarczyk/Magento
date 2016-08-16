@@ -9,9 +9,19 @@
         </reference>
         <reference name="header">
            <remove name="store_language"/>
-             <reference name="top.container"> 
+<!--             <reference name="top.container"> 
                 <block type="checkout/onepage_link" before="content" after="top.links" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
-             </reference> 
+             </reference> -->
         </reference>
     </default>
+    <cms_index_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/jquery-1.6.1.min.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery.nivo.slider.pack.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery.nivo.slider.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery.msCarousel-min.js</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/nivo-slider.css</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/mscarousel.css</name></action>
+        </reference>       
+    </cms_index_index>
 </layout>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="top.links">
+            <remove name="checkout_cart_link" />
+            <block type="checkout/links" name="checkout_cart_link_custom">
+                <action method="addCartLink"></action>
+            </block>
+        </reference>
+        <reference name="header">
+           <remove name="store_language"/>
+             <reference name="top.container"> 
+                <block type="checkout/onepage_link" before="content" after="top.links" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
+             </reference> 
+        </reference>
+    </default>
+</layout>

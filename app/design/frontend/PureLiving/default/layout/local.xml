@@ -9,9 +9,30 @@
         </reference>
         <reference name="header">
            <remove name="store_language"/>
+           <block type="checkout/onepage_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml" />
 <!--             <reference name="top.container"> 
                 <block type="checkout/onepage_link" before="content" after="top.links" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
              </reference> -->
+        </reference>
+        <reference name="footer">
+            <remove name="footer_links" />
+            <remove name="helloworld" />
+            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml" before="-" />
+            <block type="cms/block" name="contact_us">
+                <action method="setBlockId"><block_id>contact_us</block_id></action>
+            </block>
+            <block type="cms/block" name="customer_service">
+                <action method="setBlockId"><block_id>customer_service</block_id></action>
+            </block>
+            <block type="cms/block" name="help_guides">
+                <action method="setBlockId"><block_id>help_guides</block_id></action>
+            </block>
+            <block type="cms/block" name="about_our_site">
+                <action method="setBlockId"><block_id>about_our_site</block_id></action>
+            </block>   
+            <block type="cms/block" name="payment">
+                <action method="setBlockId"><block_id>payment</block_id></action>
+            </block>                                 
         </reference>
     </default>
     <cms_index_index>
@@ -23,8 +44,6 @@
             <action method="addItem"><type>skin_css</type><name>css/nivo-slider.css</name></action>
             <action method="addItem"><type>skin_css</type><name>css/mscarousel.css</name></action>
         </reference>
-        <reference name="footer">
-            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml" before="-" />
-        </reference>       
+    
     </cms_index_index>
 </layout>

@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <layout>
     <default>
+        <reference name="left">
+            <action method="unsetChild"><name>left.newsletter</name></action>
+            <remove name="left.permanent.callout" />
+        </reference>
         <reference name="top.links">
             <remove name="checkout_cart_link" />
             <block type="checkout/links" name="checkout_cart_link_custom">
@@ -10,9 +14,6 @@
         <reference name="header">
            <remove name="store_language"/>
            <block type="checkout/onepage_link" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml" />
-<!--             <reference name="top.container"> 
-                <block type="checkout/onepage_link" before="content" after="top.links" name="checkout.cart.methods.onepage" template="checkout/onepage/link.phtml"/>
-             </reference> -->
         </reference>
         <reference name="footer">
             <remove name="footer_links" />
@@ -44,6 +45,31 @@
             <action method="addItem"><type>skin_css</type><name>css/nivo-slider.css</name></action>
             <action method="addItem"><type>skin_css</type><name>css/mscarousel.css</name></action>
         </reference>
-    
     </cms_index_index>
+    <catalog_product_view>
+    <reference name="right">  
+        <action method="unsetChild">
+            <name>catalog.product.related</name>
+        </action>
+    </reference>    
+    <reference name="product.info">
+        <block type="catalog/product_list_related" name="catalog.product.related" as="related" template="catalog/product/list/related.phtml"/>
+    </reference>
+    </catalog_product_view>
+    <catalog_category_view>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <remove name="wishlist_sidebar" />
+        </reference>
+        <reference name="sidebar">
+            <remove name="right.reports.product.compared" />
+            <remove name="right.permanent.callout" />
+        </reference>
+        <reference name="content">
+<!--            <block type="core/template" name="template">
+               
+            </block>-->
+            <remove name="pdfbooklet" />
+        </reference>
+    </catalog_category_view>
 </layout>

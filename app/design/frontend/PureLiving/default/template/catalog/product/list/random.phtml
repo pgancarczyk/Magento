@@ -1,0 +1,48 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+$products = Mage::getModel('catalog/product')->getCollection();
+$products->addAttributeToSelect(array('name', 'thumbnail', 'price', 'short_description'));
+Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($products);
+Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($products); 
+$products->getSelect()->order('RAND()');
+$products->getSelect()->limit(4); ?>
+
+<div id="buy-more">
+
+        <h3>Or how about ...</h3>
+        
+<?php foreach ($products as $product) : ?>
+        <div class="buy-more-box">
+                <a href="<?php echo $product->getProductUrl()?>"><img src="<?php echo Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(160)?>" alt=""></a>	
+                <p class="buy-more-title"><a href="<?php echo $product->getProductUrl()?>"><?php echo $product->getName()?></a></p>
+                <p class="buy-more-description"><?php echo $product->getShortDescription()?></p>
+                <p class="buy-more-price">From <?php echo Mage::app()->getStore()->getCurrentCurrency()->format($product->getFinalPrice());?></p>			
+        </div>
+<?php endforeach; ?>
+    <div class="clr"></div>
+</div><!--buy-more-->

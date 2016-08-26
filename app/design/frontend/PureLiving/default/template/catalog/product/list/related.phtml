@@ -24,35 +24,19 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<h1>RELATED</h1>
 <?php if($this->getItems()->getSize()): ?>
-<div class="block block-related">
-    <div class="block-title">
-        <strong><span><?php echo $this->__('Related Products') ?></span></strong>
-    </div>
+<div class="block block-related perfect-with">
+    <h3><?php echo $this->__('Goes perfectly with:') ?></h3>
     <div class="block-content">
-        <p class="block-subtitle"><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><?php echo $this->__('select all') ?></a></p>
-        <ol class="mini-products-list" id="block-related">
+    <ul>    
         <?php foreach($this->getItems() as $_item): ?>
-            <li class="item">
-                <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
-                    <?php if (!$_item->getRequiredOptions()): ?>
-                        <input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
-                    <?php endif; ?>
-                <?php endif; ?>
-                <div class="product">
-                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
-                    <div class="product-details">
-                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>
-                        <?php echo $this->getPriceHtml($_item, true, '-related') ?>
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </li>
+				<li class="perfect-with-img">
+					<li><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" ><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(80) ?>" width="80" height="80" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+					<p class="perfect-with-desc"><?php echo $this->escapeHtml($_item->getName()) ?></p>
+					<p class="perfect-with-price"><?php echo $this->getPriceHtml($_item, true) ?></p>
+				</li>
         <?php endforeach ?>
-        </ol>
+    </ul>
         <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
     </div>
     <script type="text/javascript">

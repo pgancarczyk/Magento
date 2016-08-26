@@ -63,11 +63,23 @@
         </reference>
     </catalog_category_view>
     <catalog_product_view>
+        <reference name="left">
+            <remove name="right.reports.product.viewed" />
+        </reference>
+        <reference name="sidebar">
+            <remove name="right.reports.product.compared" />
+            <remove name="right.permanent.callout" />
+        </reference>        
         <reference name="content">
-            <block type="catalog/product_list_related" name="catalog.product.related" after="-" template="catalog/product/list/related.phtml"/>    
+            <remove name="pdfbooklet" />
+            <block type="core/template" name="catalog.product.random" template="catalog/product/list/random.phtml" /> 
         </reference>
         <reference name="product.info">
             <remove name="product.info.configurable" />
+            <remove name="product.info.upsell"/>
         </reference>
+        <reference name="product.info.additional">
+            <block type="catalog/product_list_related" name="catalog.product.related" before="upsell_products" template="catalog/product/list/related.phtml"/>
+        </reference>       
     </catalog_product_view>
 </layout>

@@ -62,9 +62,6 @@
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
                         <?php echo $this->getChildHtml('addtocart') ?>
-                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                            <span class="or"><?php echo $this->__('OR') ?></span>
-                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
                 <?php echo $this->getChildHtml('extra_buttons') ?>
@@ -76,16 +73,51 @@
                 <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
             <?php endif;?>
 
+    <div id="product-details">
+
+            <ul id="product-details-menu">
+                    <li id="product-details-menu-curent"><a href="#"><?php echo $this->__("We Say...") ?></a></li>
+                    <li><a href="#"><?php echo $this->__("Product Details") ?></a></li>
+                    <li><a href="#"><?php echo $this->__("Sizing Information") ?></a></li>
+                    <li id="product-details-menu-last"><a  href="#"><?php echo $this->__("Delivery &amp; Returns") ?></a></li>
+            </ul>
+
+            <div class="product-details-tab">
+
+<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+        <div class="box-collateral <?php echo "box-{$alias}"?>">
+            <?php if ($title = $this->getChildData($alias, 'title')):?>
+            <h2><?php echo $this->escapeHtml($title); ?></h2>
+            <?php endif;?>
+            <?php echo $html; ?>
         </div>
+<?php endforeach; ?>
+                
+            </div><!--product-details-tab-->
+
+
+                                              
+    </div><!--product details-->
+
+
+        </div>
+        
+            
+        
 
         <div class="product-img-box">
             <?php echo $this->getChildHtml('media') ?>
         </div>
+        
+        
+        
 
         <div class="clearer"></div>
         <?php if ($_product->isSaleable() && $this->hasOptions()):?>
             <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-        <?php endif;?>
+        <?php endif;?>    
+        
+        
     </form>
     <script type="text/javascript">
     //<![CDATA[
@@ -141,32 +173,6 @@
     </div>
 
     <div class="product-collateral">
-
-    <div id="product-details">
-
-            <ul id="product-details-menu">
-                    <li id="product-details-menu-curent"><a href="#"><?php echo $this->__("We Say...") ?></a></li>
-                    <li><a href="#"><?php echo $this->__("Product Details") ?></a></li>
-                    <li><a href="#"><?php echo $this->__("Sizing Information") ?></a></li>
-                    <li id="product-details-menu-last"><a  href="#"><?php echo $this->__("Delivery &amp; Returns") ?></a></li>
-            </ul>
-
-            <div class="product-details-tab">
-
-<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
-        <div class="box-collateral <?php echo "box-{$alias}"?>">
-            <?php if ($title = $this->getChildData($alias, 'title')):?>
-            <h2><?php echo $this->escapeHtml($title); ?></h2>
-            <?php endif;?>
-            <?php echo $html; ?>
-        </div>
-<?php endforeach;?>
-                
-            </div><!--product-details-tab-->
-
-
-                                                            <div class="clr"></div>
-    </div><!--product details-->
         
 
 

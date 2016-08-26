@@ -46,6 +46,8 @@
 <?php if($_imgUrl): ?>
     <?php echo $_imgHtml ?>
 <?php endif; ?>
+
+<?php if (!$_category->getChildrenCount()): ?>
 <div id="comecial-description">
 		
     <div id="comecial-description-left">
@@ -63,7 +65,7 @@
     <div class="clr"></div>	
 										
 </div>
-
+<?php endif; ?>
 
 <?php if($this->isContentMode()): ?>
     <?php echo $this->getCmsBlockHtml() ?>

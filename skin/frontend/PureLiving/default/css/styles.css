@@ -616,7 +616,7 @@ tr.summary-details-excluded { font-style:italic; }
 					background: #fff url(../images/bg-header.jpg) top left no-repeat;}
 .header .logo { float:left; text-decoration:none !important; }
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
-.header h1.logo, .header a.logo { 
+.header a.logo { 
 					float: left;
 					width: 300px;
 					margin: 0 0 0 9px;} 

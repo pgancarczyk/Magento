@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <multishipping>
+            <title>Multishipping</title>
+            <sort_order>40</sort_order>
+            <children>
+                <config>
+                    <title>Config</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/multishipping/config</action>
+                </config>
+                <calendar>
+                    <title>Calendar</title>
+                    <sort_order>2</sort_order>
+                    <action>adminhtml/multishipping/calendar</action>
+                </calendar>
+            </children>
+        </multishipping>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <multishipping>
+                        <title>Multishipping</title>
+                        <children>
+                            <config>
+                                <title>Config Action</title>
+                            </config>
+                            <calendar>
+                                <title>Calendar Action</title>
+                            </calendar>
+                        </children>
+                    </multishipping>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_multishipping_config>
+        <reference name="head">
+            <action method="addCss"><stylesheet>multishipping.css</stylesheet></action>
+            <action method="addJs"><script>multishipping/multishipping.js</script></action>
+        </reference>
+    </adminhtml_multishipping_config>
+    <adminhtml_multishipping_calendar>
+        <reference name="head">
+            <action method="addCss"><stylesheet>multishipping.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="multishipping/adminhtml_calendar" name="multishipping.calendar" template="multishipping/calendar.phtml"/>
+        </reference>
+    </adminhtml_multishipping_calendar>    
+</layout>

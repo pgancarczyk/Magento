@@ -1,0 +1,54 @@
+.multishipping td, th {
+    border: solid 1px grey;
+    text-align: center;
+}
+.multishipping th, td:first-child {
+    padding: 5px;
+    font-weight: bold;
+}
+.multishipping table {
+    border-collapse: collapse;
+    margin: 15px auto;
+}
+.multishipping table input[type="text"] {
+    width: 40px;
+    border: none;
+    text-align: center;
+    height: 100%;
+}
+.multishipping table:nth-of-type(2) thead tr th:first-child {
+    border-top: none;
+    border-left: none;
+}
+.multishipping input:focus, .multishipping select:focus {
+    outline: none;
+}
+.multishipping table select, .multishipping table option {
+    height: 100%;
+    border: none;
+    width: 60px;
+    text-align: center;
+}
+.multishipping table select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 0 0 9px;
+}
+.multishipping table select::-ms-expand {
+    display: none;
+}
+.multishipping h3 {
+    text-align: center;
+}
+.multishipping .default {
+    background: #66a3ff !important;
+}
+.multishipping .disabled {
+    background: #dcdcdc !important;
+}
+.multishipping .filled {
+    background: #94da94 !important;
+}
+.multishipping p {
+    font-style: italic;
+}

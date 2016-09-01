@@ -30,16 +30,30 @@
                 </connection>
             </multishipping_setup>
         </resources>
+        <blocks>
+            <multishipping>
+                <class>Polcode_Multishipping_Block</class>
+            </multishipping>
+        </blocks>
     </global>
     <admin>
         <routers>
-            <multishipping>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                  <module>Polcode_Multishipping</module>
-                  <frontName>multishipping</frontName>
+                    <modules>
+                        <Polcode_Multishipping after="Mage_Adminhtml">Polcode_Multishipping</Polcode_Multishipping>
+                    </modules>
                 </args>
-            </multishipping>
+            </adminhtml>
         </routers>
-    </admin>    
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <multishipping>
+                    <file>multishipping.xml</file>
+                </multishipping>
+            </updates>
+        </layout>
+    </adminhtml>
 </config>

@@ -52,3 +52,6 @@
 .multishipping p {
     font-style: italic;
 }
+.multishipping .price {
+    font-size: 12px;
+}

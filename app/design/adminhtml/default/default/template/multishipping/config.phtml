@@ -1,6 +1,6 @@
 <div class="multishipping">
     <h3><?php echo $this->__("Default") ?></h3>
-    <table>
+    <table id="multishipping-default">
         <thead>
             <tr>
                 <th><?php echo $this->__("enabled") ?></th><th><?php echo $this->__("limit") ?></th><th><?php echo $this->__("price") ?></th>
@@ -8,16 +8,18 @@
         </thead>
         <tbody>
             <tr>
-                <td><select><option value="enabled"><?php echo $this->__("Enabled") ?></option><option value="disabled"><?php echo $this->__("Disabled") ?></option></select></td><td><input type="text"></td><td><input type="text"></td>
+                <td><?php echo $this->getEnabledHtml(7, 0) ?></td>
+                <td><?php echo $this->getLimitHtml(7, 0) ?></td>
+                <td><?php echo $this->getPriceHtml(7, 0) ?></td>  
             </tr>
         </tbody>
     </table>
 
     <h3><?php echo $this->__("Detailed") ?></h3>
 
-    <p><?php echo $this->__("Leave a field empty for it to inherit the default value.") ?></p>
+    <p><?php echo $this->__("Leave a field empty for it to inherit its default value.") ?></p>
     
-    <table>
+    <table id="multishipping-main">
         <thead>
             <tr>
                 <th rowspan="2"></th>
@@ -37,17 +39,21 @@
             <tr>
                 <td><?php echo $this->__("Default") ?></td>
                 <?php for($j = 0; $j < 7; $j++): ?>
-                    <td><select><option value="enabled"><?php echo $this->__("Enabled") ?></option><option value="disabled"><?php echo $this->__("Disabled") ?></option><option default value=""><?php echo $this->__("Default") ?></option></select><td><input type="text"></td><td><input type="text"></td>
+                    <td><?php echo $this->getEnabledHtml($j, 24) ?></td>
+                    <td><?php echo $this->getLimitHtml($j, 24) ?></td>
+                    <td><?php echo $this->getPriceHtml($j, 24) ?></td>                    
                 <?php endfor; ?>
             </tr>
             <?php for($i = 0; $i < 24; $i++): ?>
                 <tr>
                     <td><?php echo $i ?></td>
                     <?php for($j = 0; $j < 7; $j++): ?>
-                        <td><select><option value="enabled"><?php echo $this->__("Enabled") ?></option><option value="disabled"><?php echo $this->__("Disabled") ?></option><option default value=""><?php echo $this->__("Default") ?></option></select></td><td><input type="text"></td><td><input type="text" value="<?php if ($price = $this->getPrice($i, $j)) var_dump($price->getData()); ?>"></td>
+                        <td><?php echo $this->getEnabledHtml($j, $i) ?></td>
+                        <td><?php echo $this->getLimitHtml($j, $i) ?></td>
+                        <td><?php echo $this->getPriceHtml($j, $i) ?></td>
                     <?php endfor; ?>                
             <?php endfor; ?>
         </tbody>
     </table>
-
+    
 </div>

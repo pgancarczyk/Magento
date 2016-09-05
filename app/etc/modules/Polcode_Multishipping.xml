@@ -4,6 +4,9 @@
     <Polcode_Multishipping>
       <active>true</active>
       <codePool>local</codePool>
+      <depends>
+          <Mage_Shipping />
+      </depends>
     </Polcode_Multishipping>
   </modules>
 </config>

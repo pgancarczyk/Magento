@@ -20,7 +20,7 @@ $table = $installer->getConnection()->newTable($installer->getTable('multishippi
         'unsigned' => true,
         'nullable' => true,
         ), 'Is the hour enabled')
-    ->addColumn('price', Varien_Db_Ddl_Table::TYPE_DECIMAL, '12,4', array(
+    ->addColumn('price', Varien_Db_Ddl_Table::TYPE_DECIMAL, '12,2', array(
         'nullable' => true, 
         ), 'Price')
     ->addColumn('limit', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
@@ -30,3 +30,16 @@ $table = $installer->getConnection()->newTable($installer->getTable('multishippi
     ->setComment('Multishipping configuration table');
 $installer->getConnection()->createTable($table);
 $installer->endSetup();
+
+$eavInstaller = new Mage_Eav_Model_Entity_Setup('core_setup');
+$eavInstaller->startSetup();
+$eavInstaller->addAttribute( 'order', 'shipping_date', array(
+    'type'      => 'datetime',
+    'input'     => ' datetime ',
+    'backend'   => 'multishipping/entity_attribute_backend_datetime',
+    'label'     => 'Shipping date',
+    'required'  => false,
+    'visible'   => true,
+    )
+);
+$eavInstaller->endSetup();

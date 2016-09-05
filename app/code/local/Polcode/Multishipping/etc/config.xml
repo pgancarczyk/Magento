@@ -19,6 +19,11 @@
                     </multishipping>
                 </entities>
             </multishipping_resource>
+            <checkout>
+                <rewrite>
+                    <type_onepage>Polcode_Multishipping_Model_Checkout_Type_Onepage</type_onepage>
+                </rewrite>
+            </checkout>
         </models>
         <resources>
             <multishipping_setup>
@@ -34,6 +39,11 @@
             <multishipping>
                 <class>Polcode_Multishipping_Block</class>
             </multishipping>
+            <checkout>
+                <rewrite>
+                    <onepage>Polcode_Multishipping_Block_Checkout_Onepage</onepage>
+                </rewrite>
+            </checkout>
         </blocks>
     </global>
     <admin>
@@ -56,4 +66,25 @@
             </updates>
         </layout>
     </adminhtml>
+    <default>
+        <carriers>
+            <multishipping>
+                <active>1</active>
+                <model>multishipping/carrier</model>
+                <title>Multishipping Carrier</title>
+                <sort_order>10</sort_order>
+                <sallowspecific>0</sallowspecific>
+                <express_max_weight>0</express_max_weight>
+            </multishipping>
+        </carriers>
+    </default>
+    <frontend>
+        <layout>
+            <updates>
+                <multishipping>
+                    <file>multishipping.xml</file>
+                </multishipping>
+            </updates>
+        </layout>
+    </frontend>
 </config>

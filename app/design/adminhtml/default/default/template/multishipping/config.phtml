@@ -1,59 +1,65 @@
 <div class="multishipping">
-    <h3><?php echo $this->__("Default") ?></h3>
-    <table id="multishipping-default">
-        <thead>
-            <tr>
-                <th><?php echo $this->__("enabled") ?></th><th><?php echo $this->__("limit") ?></th><th><?php echo $this->__("price") ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><?php echo $this->getEnabledHtml(7, 0) ?></td>
-                <td><?php echo $this->getLimitHtml(7, 0) ?></td>
-                <td><?php echo $this->getPriceHtml(7, 0) ?></td>  
-            </tr>
-        </tbody>
-    </table>
-
-    <h3><?php echo $this->__("Detailed") ?></h3>
-
-    <p><?php echo $this->__("Leave a field empty for it to inherit its default value.") ?></p>
     
-    <table id="multishipping-main">
-        <thead>
-            <tr>
-                <th rowspan="2"></th>
-                <th colspan="3"><?php echo $this->__("Monday") ?></th>
-                <th colspan="3"><?php echo $this->__("Tuesday") ?></th>
-                <th colspan="3"><?php echo $this->__("Wednesday") ?></th>
-                <th colspan="3"><?php echo $this->__("Thursday") ?></th>
-                <th colspan="3"><?php echo $this->__("Friday") ?></th>
-                <th colspan="3"><?php echo $this->__("Saturday") ?></th>
-                <th colspan="3"><?php echo $this->__("Sunday") ?></th>
-            </tr>
-            <tr>
-                <?php echo str_repeat("<th>". $this->__("enabled") ."</th><th>". $this->__("limit") ."</th><th>". $this->__("price") ."</th>", 7) ?>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><?php echo $this->__("Default") ?></td>
-                <?php for($j = 0; $j < 7; $j++): ?>
-                    <td><?php echo $this->getEnabledHtml($j, 24) ?></td>
-                    <td><?php echo $this->getLimitHtml($j, 24) ?></td>
-                    <td><?php echo $this->getPriceHtml($j, 24) ?></td>                    
-                <?php endfor; ?>
-            </tr>
-            <?php for($i = 0; $i < 24; $i++): ?>
+    <form id="edit_form" action="<?php echo Mage::helper("adminhtml")->getUrl("adminhtml/multishipping/save") ?>" method="post">
+    <?php echo $this->getBlockHtml('formkey') ?>
+    
+        <h3><?php echo $this->__("Default") ?></h3>
+        <table id="multishipping-default">
+            <thead>
                 <tr>
-                    <td><?php echo $i ?></td>
+                    <th><?php echo $this->__("enabled") ?></th><th><?php echo $this->__("limit") ?></th><th><?php echo $this->__("price") ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?php echo $this->getEnabledHtml(7, 0) ?></td>
+                    <td><?php echo $this->getLimitHtml(7, 0) ?></td>
+                    <td><?php echo $this->getPriceHtml(7, 0) ?></td>  
+                </tr>
+            </tbody>
+        </table>
+
+        <h3><?php echo $this->__("Detailed") ?></h3>
+
+        <p><?php echo $this->__("Leave a field empty for it to inherit its default value.") ?></p>
+
+        <table id="multishipping-main">
+            <thead>
+                <tr>
+                    <th rowspan="2"></th>
+                    <th colspan="3"><?php echo $this->__("Monday") ?></th>
+                    <th colspan="3"><?php echo $this->__("Tuesday") ?></th>
+                    <th colspan="3"><?php echo $this->__("Wednesday") ?></th>
+                    <th colspan="3"><?php echo $this->__("Thursday") ?></th>
+                    <th colspan="3"><?php echo $this->__("Friday") ?></th>
+                    <th colspan="3"><?php echo $this->__("Saturday") ?></th>
+                    <th colspan="3"><?php echo $this->__("Sunday") ?></th>
+                </tr>
+                <tr>
+                    <?php echo str_repeat("<th>". $this->__("enabled") ."</th><th>". $this->__("limit") ."</th><th>". $this->__("price") ."</th>", 7) ?>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?php echo $this->__("Default") ?></td>
                     <?php for($j = 0; $j < 7; $j++): ?>
-                        <td><?php echo $this->getEnabledHtml($j, $i) ?></td>
-                        <td><?php echo $this->getLimitHtml($j, $i) ?></td>
-                        <td><?php echo $this->getPriceHtml($j, $i) ?></td>
-                    <?php endfor; ?>                
-            <?php endfor; ?>
-        </tbody>
-    </table>
+                        <td><?php echo $this->getEnabledHtml($j, 24) ?></td>
+                        <td><?php echo $this->getLimitHtml($j, 24) ?></td>
+                        <td><?php echo $this->getPriceHtml($j, 24) ?></td>                    
+                    <?php endfor; ?>
+                </tr>
+                <?php for($i = 0; $i < 24; $i++): ?>
+                    <tr>
+                        <td><?php echo $i ?></td>
+                        <?php for($j = 0; $j < 7; $j++): ?>
+                            <td><?php echo $this->getEnabledHtml($j, $i) ?></td>
+                            <td><?php echo $this->getLimitHtml($j, $i) ?></td>
+                            <td><?php echo $this->getPriceHtml($j, $i) ?></td>
+                        <?php endfor; ?>                
+                <?php endfor; ?>
+            </tbody>
+        </table>
+    
+    </form>
     
 </div>

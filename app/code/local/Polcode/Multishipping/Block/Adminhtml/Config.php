@@ -12,8 +12,10 @@ class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_
              $hour = $row->getHour();
              $price = $row->getPrice();
              $limit = $row->getLimit();
+             $is_enabled = $row->getIsEnabled();
              $this->_configTable[$day][$hour]['price'] = $price;
              $this->_configTable[$day][$hour]['limit'] = $limit;
+             $this->_configTable[$day][$hour]['is_enabled'] = $is_enabled;
         }
         parent::__construct();
     }
@@ -25,7 +27,7 @@ class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_
         {
             $value = $this->_configTable[$day][$hour]['price'];
         }
-        return "<input class=price data-multishipping-day=". $day ." data-multishipping-hour=". $hour ." type=text value=". $value .">";
+        return "<input name=px". $day ."x". $hour . " class=price data-multishipping-day=". $day ." data-multishipping-hour=". $hour ." type=text value=". $value .">";
     }
     
     public function getLimitHtml($day, $hour)
@@ -35,13 +37,13 @@ class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_
         {
             $value = $this->_configTable[$day][$hour]['limit'];
         }
-        return "<input class=limit data-multishipping-day=". $day ." data-multishipping-hour=". $hour ." type=text value=". $value .">";
+        return "<input name=lx". $day ."x". $hour . " class=limit data-multishipping-day=". $day ." data-multishipping-hour=". $hour ." type=text value=". $value .">";
     }
     
     public function getEnabledHtml($day, $hour)
     {
         $selected = $this->getSelected($day, $hour);
-        return "<select data-multishipping-day=". $day ." data-multishipping-hour=". $hour ."><option value=enabled". $selected['enabled'] .">". $this->__("Enabled") ."</option><option value=disabled". $selected['disabled'] .">". $this->__("Disabled") ."</option><option ". $selected['default'] .">". $this->__("Default") ."</option></select>";
+        return "<select name=ex". $day ."x". $hour . " data-multishipping-day=". $day ." data-multishipping-hour=". $hour ."><option value=1". $selected['enabled'] .">". $this->__("Enabled") ."</option><option value=2". $selected['disabled'] .">". $this->__("Disabled") ."</option><option value=0 ". $selected['default'] .">". $this->__("Default") ."</option></select>";
     }
     
     protected function getSelected($day, $hour) 
@@ -49,14 +51,16 @@ class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_
         $selected['enabled'] = '';
         $selected['disabled'] = '';
         $selected['default'] = '';        
-        if (isset($this->_configTable[$day][$hour]['enabled']))
+        if (isset($this->_configTable[$day][$hour]['is_enabled']))
         {
-            switch ($this->_configTable[$day][$hour]['enabled'])
+            switch ($this->_configTable[$day][$hour]['is_enabled'])
             {
                 case 0:
                     $selected['default'] = ' selected';
+                    break;
                 case 1:
                     $selected['enabled'] = ' selected';
+                    break;
                 case 2:
                     $selected['disabled'] = ' selected';
             }

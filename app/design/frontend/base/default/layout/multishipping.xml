@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index> <!-- Adding our new step to onepage block  -->
+        <reference name='checkout.onepage'>
+             <action method='setTemplate'><template>multishipping/onepage.phtml</template></action>
+             <block type="multishipping/checkout_onepage" name="checkout.onepage.multishippiong" as="multishipping" template="multishipping/onepage/multishipping.phtml"/> <!-- Here we change the template of onepage block to our custom template -->
+        </reference>
+        <reference name='checkout.progress'> <!-- Change the template of progress block -->
+              <action method='setTemplate'><template>multishipping/progress.phtml</template></action>
+        </reference> <!-- Here we change the template of the progress block to our custom template created -->
+    </checkout_onepage_index>
+    <checkout_onepage_progress>  <!-- Change the template of progress block -->
+        <reference name='root'>
+            <action method='setTemplate'><template>multishipping/progress.phtml</template></action>
+        </reference>
+    </checkout_onepage_progress>
+</layout>

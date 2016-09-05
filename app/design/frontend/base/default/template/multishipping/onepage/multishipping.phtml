@@ -1,0 +1,43 @@
+<form id="co-multishipping-form">
+<fieldset>
+    <ul class="form-list">
+    <li id="multishipping-form">
+        <fieldset>
+            <ul>
+                <li class="wide">
+                    <label for="multishipping:date" class="required"><em>*</em><?php echo $this->__('Delivery day:') ?></label>
+                    <div class="input-box">
+                        <select class="required-entry" name="multishipping[day]" id="multishipping:day">
+                            <option value="0" <?php if($this->getQuote()->getMultishippingDay() == 0){echo 'selected';} ?>><?php echo $this->__('Monday') ?></option>
+                            <option value="0" <?php if($this->getQuote()->getMultishippingDay() == 6){echo 'selected';} ?>><?php echo $this->__('Sunday') ?></option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+                <li class="wide">
+                    <label for="multishipping:hour" class="required"><em>*</em><?php echo $this->__('Delivery hour:') ?></label>
+                    <div class="input-box">
+                        <select class="required-entry" name="multishipping[hour]" id="multishipping:hour">
+                            <option value="0">0:00</option>
+                            <option value="1">1:00</option>
+                        </select>
+                    </div>
+                </li>
+        </fieldset>
+     </li>
+    </ul>
+    <div class="buttons-set" id="multishipping-buttons-container">
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <button type="button" title="<?php echo $this->__('Continue') ?>" class="button" onclick="multishipping.save()"><span><span><?php echo $this->__('Continue') ?></span></span></button>
+        <span class="please-wait" id="multishipping-please-wait" style="display:none;">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading next step...') ?>" title="<?php echo $this->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+        </span>
+    </div>
+</fieldset>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var multishipping = new MultishippingMethod('co-multishipping-form','<?php echo $this->getUrl('custom/onepage/saveMultishipping') ?>');
+    var multishippingForm = new VarienForm('co-multishipping-form');
+//]]>
+</script>

@@ -2,7 +2,7 @@ var Multishipping = Class.create(Checkout, {
     initialize: function($super,accordion, urls){
         $super(accordion, urls);
         //New Code Addded
-        this.steps = ['login' ,'billing', 'shipping', 'multishipping', 'shipping_method', 'payment', 'review'];
+        this.steps = ['login', 'billing', 'shipping', 'multishipping', 'shipping_method', 'payment', 'review'];
     },
     setMethod: function(){
         if ($('login:guest') && $('login:guest').checked) {
@@ -29,12 +29,13 @@ var Multishipping = Class.create(Checkout, {
         }
     }
 });
-
 var MultishippingMethod = Class.create();
 MultishippingMethod.prototype = {
     initialize: function(form, saveUrl){
+        console.log('dupa5');
         this.form = form;
         if ($(this.form)) {
+            console.log('dupa6');
             $(this.form).observe('submit', function(event){this.save();Event.stop(event);}.bind(this));
         }
         this.saveUrl = saveUrl;
@@ -44,6 +45,7 @@ MultishippingMethod.prototype = {
     },
  
     validate: function() {
+        console.log('dupa4');
         if(!this.validator.validate()) {
             return false;
         }
@@ -51,9 +53,11 @@ MultishippingMethod.prototype = {
     },
  
     save: function(){
- 
+        console.log('dupa##1');
         if (checkout.loadWaiting!=false) return;
+        console.log('dupa##2');
         if (this.validate()) {
+            console.log('dupa##3');
             checkout.setLoadWaiting('multishipping');
             var request = new Ajax.Request(
                 this.saveUrl,
@@ -69,10 +73,12 @@ MultishippingMethod.prototype = {
     },
  
     resetLoadWaiting: function(transport){
+        console.log('dupa2');
         checkout.setLoadWaiting(false);
     },
  
     nextStep: function(transport){
+        console.log('dupa1');
         if (transport && transport.responseText){
             try{
                 response = eval('(' + transport.responseText + ')');
@@ -97,7 +103,18 @@ MultishippingMethod.prototype = {
             checkout.reloadProgressBlock();
             return;
         }
- 
+
         checkout.setPayment();
     }
 }
+
+document.observe("dom:loaded", function() {
+    document.observe('click', function(event) {
+        console.log(event.target);
+        if(event.target.hasClassName('multishipping-date')) {
+            $('multishipping:date').value = event.target.getAttribute('data-multishipping-value');
+            if($$('.multishipping-selected')[0]) $$('.multishipping-selected')[0].removeClassName('multishipping-selected');
+            event.target.addClassName('multishipping-selected');
+        }
+    });
+});

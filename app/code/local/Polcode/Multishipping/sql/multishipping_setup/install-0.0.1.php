@@ -31,7 +31,7 @@ $table = $installer->getConnection()->newTable($installer->getTable('multishippi
 $installer->getConnection()->createTable($table);
 $installer->endSetup();
 
-$eavInstaller = new Mage_Eav_Model_Entity_Setup('core_setup');
+$eavInstaller = new Mage_Sales_Model_Mysql4_Setup('core_setup');
 $eavInstaller->startSetup();
 $eavInstaller->addAttribute( 'order', 'shipping_date', array(
     'type'      => 'datetime',

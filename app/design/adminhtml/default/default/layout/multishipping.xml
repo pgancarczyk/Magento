@@ -13,5 +13,10 @@
         <reference name="content">
             <block type="multishipping/adminhtml_calendar" name="multishipping.calendar" template="multishipping/calendar.phtml"/>
         </reference>
-    </adminhtml_multishipping_calendar>    
+    </adminhtml_multishipping_calendar>
+    <adminhtml_sales_order_view>
+        <reference name="order_tab_info">
+            <action method="setTemplate"><template>multishipping/order/view/tab/info.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_view>
 </layout>

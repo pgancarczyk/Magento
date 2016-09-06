@@ -37,6 +37,7 @@ class Polcode_Multishipping_Model_Entity_Attribute_Backend_Datetime extends Mage
      */
     public function formatDate($date)
     {
+        Mage::log('przed: ' . $date);
         if (empty($date)) {
             return null;
         }
@@ -56,6 +57,7 @@ class Polcode_Multishipping_Model_Entity_Attribute_Backend_Datetime extends Mage
                null, false
             );
         }
+        Mage::log('po: ' . $date->toString(Varien_Date::DATETIME_INTERNAL_FORMAT));
         return $date->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
     }
 }

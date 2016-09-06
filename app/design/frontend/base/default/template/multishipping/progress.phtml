@@ -43,8 +43,8 @@
             <?php endif; ?>
             
             <?php if ($this->getCheckout()->getStepData('multishipping', 'is_show') and !$this->getQuote()->isVirtual()): ?>
-            <div id="shipping-progress-opcheckout">
-                <?php echo $this->getChildHtml('shipping.progress') ?>
+            <div id="multishipping-progress-opcheckout">
+                <?php echo $this->getChildHtml('multishipping.progress') ?>
             </div>
             <?php endif; ?>            
 

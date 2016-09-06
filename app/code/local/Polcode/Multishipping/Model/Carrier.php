@@ -21,7 +21,7 @@ class Polcode_Multishipping_Model_Carrier extends Mage_Shipping_Model_Carrier_Ab
         $rate->setCarrierTitle($this->getConfigData('title'));
         $rate->setMethod('large');
         $rate->setMethodTitle('Standard delivery');
-        $rate->setPrice(69.69);
+        $rate->setPrice(Mage::getSingleton('core/session', array('name' => 'frontend'))->getMultishippingCost()); // do zmiany
         $rate->setCost(0);
         
         return $rate;

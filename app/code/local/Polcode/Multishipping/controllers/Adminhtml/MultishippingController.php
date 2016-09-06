@@ -1,5 +1,5 @@
 <?php
-class Polcode_Multishipping_MultishippingController extends Mage_Adminhtml_Controller_Action
+class Polcode_Multishipping_Adminhtml_MultishippingController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {

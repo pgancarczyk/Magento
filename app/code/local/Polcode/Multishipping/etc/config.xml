@@ -25,6 +25,17 @@
                 </rewrite>
             </checkout>
         </models>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <multishipping_observer>
+                        <type>singleton</type>
+                        <class>multishipping/observer</class>
+                        <method>addDeliveryDate</method>
+                    </multishipping_observer>
+                </observers>
+            </sales_order_place_after>
+        </events>
         <resources>
             <multishipping_setup>
                 <setup>
@@ -86,5 +97,15 @@
                 </multishipping>
             </updates>
         </layout>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <Polcode_Multishipping before="Mage_Checkout">Polcode_Multishipping</Polcode_Multishipping>
+                    </modules>
+                </args>
+                <onepage></onepage>
+            </checkout>
+        </routers>
     </frontend>
 </config>

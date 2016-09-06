@@ -4,17 +4,16 @@ class Polcode_Multishipping_Block_Checkout_Onepage extends Mage_Checkout_Block_O
     public function getSteps()
     {
         $steps = array();
- 
-        if (!$this->isCustomerLoggedIn()) {
-            $steps['login'] = $this->getCheckout()->getStepData('login');
+        $stepCodes = array('login', 'billing', 'shipping', 'multishipping', 'shipping_method', 'payment', 'review');
+
+        if ($this->isCustomerLoggedIn()) {
+            $stepCodes = array_diff($stepCodes, array('login'));
         }
- 
-        //New Code Adding step excellence here
-        $stepCodes = array('billing', 'shipping', 'multishipping', 'shipping_method', 'payment', 'review');
- 
+
         foreach ($stepCodes as $step) {
             $steps[$step] = $this->getCheckout()->getStepData($step);
         }
+
         return $steps;
     }
  

@@ -1,0 +1,39 @@
+#multishipping-form table {
+    width: 100%;
+}
+#multishipping-form table input {
+    border: 2px solid #ccb233;
+    border-radius: 10%;
+    background: none;
+    padding: 2px 5px;
+    margin: 2px auto;
+    display: block;
+    width: 75%;
+    outline: none;
+}
+#multishipping-form table input:hover {
+    background: #ccb233;
+    font-weight: bold;
+    color: #fff;
+}
+#multishipping-form table th {
+    width: 12.5%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#multishipping-form table tr:nth-child(even) {
+    background: #f4f4f4;
+}
+#multishipping-form table td {
+    padding: 5px;
+}
+#multishipping-form table td:first-child {
+    text-align: right;
+}
+.multishipping-selected {
+    background: #636363 !important;
+    border: 2px solid #636363 !important;
+    color: #fff;
+    font-weight: bold;
+}

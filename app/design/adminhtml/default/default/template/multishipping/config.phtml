@@ -27,13 +27,9 @@
             <thead>
                 <tr>
                     <th rowspan="2"></th>
-                    <th colspan="3"><?php echo $this->__("Monday") ?></th>
-                    <th colspan="3"><?php echo $this->__("Tuesday") ?></th>
-                    <th colspan="3"><?php echo $this->__("Wednesday") ?></th>
-                    <th colspan="3"><?php echo $this->__("Thursday") ?></th>
-                    <th colspan="3"><?php echo $this->__("Friday") ?></th>
-                    <th colspan="3"><?php echo $this->__("Saturday") ?></th>
-                    <th colspan="3"><?php echo $this->__("Sunday") ?></th>
+                    <?php foreach($this->getDays() as $day): ?>
+                        <th colspan="3"><?php echo $day['name'] ?> (<?php echo $day['sufix'] ?>)</th>
+                    <?php endforeach; ?>
                 </tr>
                 <tr>
                     <?php echo str_repeat("<th>". $this->__("enabled") ."</th><th>". $this->__("limit") ."</th><th>". $this->__("price") ."</th>", 7) ?>
@@ -51,11 +47,11 @@
                 <?php for($i = 0; $i < 24; $i++): ?>
                     <tr>
                         <td><?php echo $i ?></td>
-                        <?php for($j = 0; $j < 7; $j++): ?>
-                            <td><?php echo $this->getEnabledHtml($j, $i) ?></td>
-                            <td><?php echo $this->getLimitHtml($j, $i) ?></td>
-                            <td><?php echo $this->getPriceHtml($j, $i) ?></td>
-                        <?php endfor; ?>                
+                        <?php foreach($this->getDays() as $day): ?>
+                            <td><?php echo $this->getEnabledHtml($day['number'], $i) ?></td>
+                            <td><?php echo $this->getLimitHtml($day['number'], $i) ?></td>
+                            <td><?php echo $this->getPriceHtml($day['number'], $i) ?></td>
+                        <?php endforeach; ?>                
                 <?php endfor; ?>
             </tbody>
         </table>

@@ -62,7 +62,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Polcode_Multishipping after="Mage_Adminhtml">Polcode_Multishipping</Polcode_Multishipping>
+                        <Polcode_Multishipping after="Mage_Adminhtml">Polcode_Multishipping_Adminhtml</Polcode_Multishipping>
                     </modules>
                 </args>
             </adminhtml>

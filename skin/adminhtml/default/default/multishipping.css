@@ -1,8 +1,8 @@
-.multishipping td, th {
-    border: solid 1px grey;
+.multishipping td, .multishipping th {
     text-align: center;
+    border: 1px solid #bfbfbf;
 }
-.multishipping th, td:first-child {
+.multishipping th, .multishipping td:first-child {
     padding: 5px;
     font-weight: bold;
 }
@@ -15,10 +15,17 @@
     border: none;
     text-align: center;
     height: 100%;
+    background: transparent;
 }
 .multishipping table:nth-of-type(2) thead tr th:first-child {
     border-top: none;
     border-left: none;
+}
+.multishipping table:nth-of-type(2) tr:nth-child(even) {
+    background: #f4f4f4;
+}
+.multishipping table:nth-of-type(1) thead tr {
+    background: #f4f4f4;
 }
 .multishipping input:focus, .multishipping select:focus {
     outline: none;
@@ -28,6 +35,7 @@
     border: none;
     width: 60px;
     text-align: center;
+    background: transparent;
 }
 .multishipping table select {
     -webkit-appearance: none;
@@ -54,4 +62,58 @@
 }
 .multishipping .price {
     font-size: 12px;
+}
+table.multishipping-calendar td, table.multishipping-calendar th {
+    border: 1px solid #bfbfbf;
+}
+table.multishipping-calendar thead th:first-child {
+    border-top: none;
+    border-left: none;
+}
+table.multishipping-calendar thead th {
+    padding: 5px;
+}
+table.multishipping-calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.multishipping-calendar input {
+    border: 2px solid #ccb233;
+    border-radius: 10%;
+    background: none;
+    padding: 2px 5px;
+    margin: 2px auto;
+    display: block;
+    width: 75%;
+    outline: none;
+}
+table.multishipping-calendar input:hover {
+    background: #ccb233;
+    font-weight: bold;
+    color: #fff;
+}
+table.multishipping-calendar th {
+    width: 12.5%;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: normal;
+}
+
+table.multishipping-calendar tr:nth-child(even) {
+    background: #f4f4f4;
+}
+table.multishipping-calendar td {
+    padding: 5px;
+}
+table.multishipping-calendar td:first-child {
+    text-align: right;
+}
+table.multishipping-calendar li {
+    text-align: center;
+    padding: 3px 0;
+}
+table.multishipping-calendar a {
+    color: #2e8ab8;
+    font-weight: bold;
+    text-decoration: none;
 }

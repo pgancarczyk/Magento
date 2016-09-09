@@ -2,6 +2,9 @@
 class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_Template {
    
     protected $_configTable;
+    const SELECT_DISABLED = 2;
+    const SELECT_ENABLED = 1;
+    const SELECT_DEFAULT = 0;
     
     public function __construct()
     {
@@ -55,13 +58,13 @@ class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_
         {
             switch ($this->_configTable[$day][$hour]['is_enabled'])
             {
-                case 0:
+                case self::SELECT_DEFAULT:
                     $selected['default'] = ' selected';
                     break;
-                case 1:
+                case self::SELECT_ENABLED:
                     $selected['enabled'] = ' selected';
                     break;
-                case 2:
+                case self::SELECT_DISABLED:
                     $selected['disabled'] = ' selected';
             }
         }
@@ -71,5 +74,15 @@ class Polcode_Multishipping_Block_Adminhtml_Config extends Mage_Adminhtml_Block_
         }
         return $selected;
     }
+    
+    public function getDays() {
+        $timestamp = strtotime('today');
+        $days = array();
+        for ($i = 0; $i < 7; $i++) {
+            $days[] = array('name' => $this->__(date('l', $timestamp)), 'number' => intval(date('N', $timestamp))-1, 'sufix' => $i ? date('jS', $timestamp): $this->__("today"));
+        $timestamp = strtotime('+1 day', $timestamp);
+        }
+        return $days;
+    }    
     
 }                                                

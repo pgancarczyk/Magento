@@ -1,0 +1,28 @@
+<table class="multishipping-calendar">
+    <thead>
+        <tr>
+            <th></th>
+            <?php foreach($this->getDays() as $day): ?>
+                <th><?php echo $day['name'] ?> (<?php echo $day['sufix'] ?>)</th>
+            <?php endforeach; ?>
+        </tr>
+    </thead>
+    <tbody>
+            <?php for($hour = 0; $hour < 24; $hour++): ?>
+            <tr>
+                <td><?php echo $hour ?>:00</td>
+                <?php foreach($this->getDays() as $day): ?>
+                <td>
+                    <?php if($this->getOrders($day['number'], $hour)): ?>
+                    <ul>
+                        <?php foreach($this->getOrders($day['number'], $hour) as $order): ?>
+                            <li><a href="<?php echo $order['url'] ?>"># <?php echo $order['id'] ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                </td>
+                <?php endforeach; ?>
+            </tr>
+            <?php endfor; ?>
+    </tbody>
+</table>

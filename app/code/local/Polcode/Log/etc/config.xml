@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Polcode_Log>
+            <version>0.1</version>
+        </Polcode_Log>
+    </modules>
+    <global>
+        <models>
+            <polcode_log>
+                <class>Polcode_Log_Model</class>
+                <resourceModel>polcode_log_resource</resourceModel>
+            </polcode_log>
+        </models>
+        <resources>
+            <polcode_log_setup>
+                <setup>
+                    <module>Polcode_Log</module>
+                </setup>
+            </polcode_log_setup>
+        </resources>
+        <blocks>
+            <polcode_log>
+                <class>Polcode_Log_Block</class>
+            </polcode_log>
+        </blocks>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Polcode_Log before="Mage_Adminhtml">Polcode_Log_Adminhtml</Polcode_Log>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>    
+</config>

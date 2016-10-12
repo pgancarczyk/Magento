@@ -3,13 +3,15 @@ class Polcode_Log_Block_Adminhtml_Main extends Mage_Adminhtml_Block_Widget_Grid_
 {
     public function __construct()
     {       
-        Mage::log('test');
-        $this->_addButtonLabel = $this->__('New log entry');
         parent::__construct();
-        
+        $this->_removeButton('add');
         $this->_blockGroup = 'log';
         $this->_controller = 'adminhtml_main';
-        $this->_headerText = $this->__('Edit logs');
+        $this->_headerText = $this->__('Database logs');
+        
+        // test log:
+        $helper = Mage::helper('log')->log('cokolwiek', 5);
+        
     }
 }
 

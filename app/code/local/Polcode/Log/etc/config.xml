@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Polcode_Log>
-            <version>0.1</version>
+            <version>0.1.0</version>
         </Polcode_Log>
     </modules>
     <global>
@@ -11,19 +11,35 @@
                 <class>Polcode_Log_Model</class>
                 <resourceModel>polcode_log_resource</resourceModel>
             </polcode_log>
+            <polcode_log_resource>
+                <class>Polcode_Log_Model_Resource</class>
+                <entities>
+                    <log>
+                        <table>db_logs</table>
+                    </log>
+                </entities>
+            </polcode_log_resource>
         </models>
         <resources>
             <polcode_log_setup>
                 <setup>
                     <module>Polcode_Log</module>
                 </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
             </polcode_log_setup>
         </resources>
         <blocks>
-            <polcode_log>
+            <log>
                 <class>Polcode_Log_Block</class>
-            </polcode_log>
+            </log>
         </blocks>
+        <helpers>
+            <log>
+                <class>Polcode_Log_Helper</class>
+            </log>
+        </helpers>
     </global>
     <admin>
         <routers>
@@ -35,5 +51,12 @@
                 </args>
             </adminhtml>
         </routers>
-    </admin>    
+    </admin>
+    <default>
+        <dev>
+            <db_logs>
+                <enabled>1</enabled>
+            </db_logs>
+        </dev>
+    </default>    
 </config>

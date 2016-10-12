@@ -12,7 +12,19 @@ class Polcode_Log_Adminhtml_LogController extends Mage_Adminhtml_Controller_Acti
         $this->loadLayout();
         $this->_initAction();
         $this->_addContent($this->getLayout()->createBlock('log/adminhtml_main'));
-        echo 'dupa';
         $this->renderLayout();
     }
+    
+    public function exportCsvAction()
+    {
+        $fileName = 'db_logs.csv';
+        $content = $this->getLayout()->createBlock('log/adminhtml_main_grid')->getCsvFile();
+        $this->_prepareDownloadResponse($fileName, $content);
+    }
+
+    protected function _sendUploadResponse($fileName, $content, $contentType = 'application/octet-stream')
+    {
+        $this->_prepareDownloadResponse($fileName, $content, $contentType);
+    }
+
 }

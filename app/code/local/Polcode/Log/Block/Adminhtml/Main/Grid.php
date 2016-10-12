@@ -18,24 +18,25 @@ class Polcode_Log_Block_Adminhtml_Main_Grid extends Mage_Adminhtml_Block_Widget_
     {
         $this
         ->addColumn('log_id', array(
-           'header' => $this->__("Entry ID"),
-           'index'  => 'log_id',
-           'type'   => 'number'
+           'header'     => $this->__("Entry ID"),
+           'index'      => 'log_id',
+           'type'       => 'number'
         ))
         ->addColumn('log_text', array(
-           'header' => $this->__("Value"),
-           'index'  => 'log_text',
-           'type'   => 'text'
+           'header'     => $this->__("Value"),
+           'index'      => 'log_text',
+           'type'       => 'text',
+           'renderer'   => 'Polcode_Log_Block_Adminhtml_Main_Renderer'
         ))
         ->addColumn('log_level', array(
-           'header' => $this->__("Level"),
-           'index'  => 'log_level',
-           'type'   => 'number'
+           'header'     => $this->__("Level"),
+           'index'      => 'log_level',
+           'type'       => 'number'
         ))                
         ->addColumn('log_date', array(
-           'header' => $this->__("Date logged"),
-           'index'  => 'log_date',
-           'type'   => 'date'
+           'header'     => $this->__("Date logged"),
+           'index'      => 'log_date',
+           'type'       => 'date'
         ))
         ->addExportType('*/*/exportCsv', 'CSV');
         

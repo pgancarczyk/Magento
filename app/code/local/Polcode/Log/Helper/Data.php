@@ -12,4 +12,8 @@ class Polcode_Log_Helper_Data extends Mage_Core_Helper_Abstract
             ->save();     
         }
     }
+    
+    public function logException(Exception $e) {
+        self::log($e->__toString(), Zend_Log::ERR);
+    }
 }

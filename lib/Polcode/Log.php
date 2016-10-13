@@ -1,10 +1,12 @@
 <?php
-class Polcode_Log_Helper_Data extends Mage_Core_Helper_Abstract
+class Polcode_Log
 {
-    public function log($message, $level = null)
+    public static function log($message, $level = null)
     {
         $enabled = Mage::getStoreConfig('dev/db_logs/enabled');
-        if ($enabled) {
+        $levels = explode(",", Mage::getStoreConfig('dev/db_logs/levels'));
+        if ($enabled && in_array($level, $levels)) {
+            Mage::log('uiefhuweiwe2');
             $model = Mage::getModel('polcode_log/log');
             $model->setLogText($message)
             ->setLogLevel($level)
@@ -13,7 +15,7 @@ class Polcode_Log_Helper_Data extends Mage_Core_Helper_Abstract
         }
     }
     
-    public function logException(Exception $e) {
+    public static function logException(Exception $e) {
         self::log($e->__toString(), Zend_Log::ERR);
     }
 }

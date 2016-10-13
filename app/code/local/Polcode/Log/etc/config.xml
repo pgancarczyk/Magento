@@ -35,11 +35,6 @@
                 <class>Polcode_Log_Block</class>
             </log>
         </blocks>
-        <helpers>
-            <log>
-                <class>Polcode_Log_Helper</class>
-            </log>
-        </helpers>
     </global>
     <admin>
         <routers>
@@ -56,6 +51,7 @@
         <dev>
             <db_logs>
                 <enabled>1</enabled>
+                <levels>0,1,2,3,4,5,6,7</levels>
             </db_logs>
         </dev>
     </default>    

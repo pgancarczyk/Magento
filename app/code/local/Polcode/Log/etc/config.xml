@@ -52,7 +52,21 @@
             <db_logs>
                 <enabled>1</enabled>
                 <levels>0,1,2,3,4,5,6,7</levels>
+                <archivize_after>144</archivize_after>
+                <archivize_every>12</archivize_every>
             </db_logs>
         </dev>
-    </default>    
+    </default>
+    <crontab>
+        <jobs>
+            <polcode_log>
+                <schedule>
+                    <cron_expr>*/10 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>polcode_log/observer::tick</model>
+                </run>
+            </polcode_log>
+        </jobs>
+    </crontab>
 </config>

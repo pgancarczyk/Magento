@@ -10,10 +10,10 @@ class Polcode_Log_Block_Adminhtml_Main extends Mage_Adminhtml_Block_Widget_Grid_
         $this->_headerText = $this->__('Database logs');
         
         // test log:
-        Polcode_Log::log('nowa treść22', 5);
+        // Polcode_Log::log('log test', 5);
         
         // test exception:
-        // Polcode_Log::logException(new Exception("treść", 123));
+        // Polcode_Log::logException(new Exception("exception test", 911));
         
     }
 }

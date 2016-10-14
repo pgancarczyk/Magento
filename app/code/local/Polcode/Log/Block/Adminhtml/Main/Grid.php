@@ -31,7 +31,8 @@ class Polcode_Log_Block_Adminhtml_Main_Grid extends Mage_Adminhtml_Block_Widget_
         ->addColumn('log_level', array(
            'header'     => $this->__("Level"),
            'index'      => 'log_level',
-           'type'       => 'number'
+           'type'       => 'options',
+           'options'    => Mage::getSingleton('polcode_log/system_config_source_level')->toArray()
         ))                
         ->addColumn('log_date', array(
            'header'     => $this->__("Date logged"),

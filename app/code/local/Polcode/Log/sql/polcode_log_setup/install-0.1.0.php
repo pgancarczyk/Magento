@@ -14,10 +14,10 @@ $table = $installer->getConnection()->newTable($installer->getTable('db_logs'))
         'unsigned' => true,
         'nullable' => false, 
         ), 'Level of a log (see Zend_Log for definitions)')
-    ->addColumn('log_date', Varien_Db_Ddl_Table::TYPE_DATE, null, array(
+    ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         'nullable' => true,
-        'default' => null,
-        ), 'Log date')    
+        'default' => Varien_Db_Ddl_Table::TIMESTAMP_INIT,
+        ), 'Created at')       
     ->setComment('Polcode_Log main table');
 $installer->getConnection()->createTable($table);
 $installer->endSetup();

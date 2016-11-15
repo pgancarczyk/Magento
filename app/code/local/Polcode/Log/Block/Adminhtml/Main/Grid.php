@@ -34,10 +34,10 @@ class Polcode_Log_Block_Adminhtml_Main_Grid extends Mage_Adminhtml_Block_Widget_
            'type'       => 'options',
            'options'    => Mage::getSingleton('polcode_log/system_config_source_level')->toArray()
         ))                
-        ->addColumn('log_date', array(
+        ->addColumn('created_at', array(
            'header'     => $this->__("Date logged"),
-           'index'      => 'log_date',
-           'type'       => 'date'
+           'index'      => 'created_at',
+           'type'       => 'datetime'
         ))
         ->addExportType('*/*/exportCsv', 'CSV');
         

@@ -2,7 +2,8 @@
 class Polcode_Log_Block_Adminhtml_Main extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
     public function __construct()
-    {       
+    {    
+        
         parent::__construct();
         $this->_removeButton('add');
         $this->_blockGroup = 'log';
@@ -10,10 +11,11 @@ class Polcode_Log_Block_Adminhtml_Main extends Mage_Adminhtml_Block_Widget_Grid_
         $this->_headerText = $this->__('Database logs');
         
         // test log:
-        // Polcode_Log::log('log test', 5);
+        // Polcode_Log::log('log test new', 2);
         
         // test exception:
-        // Polcode_Log::logException(new Exception("exception test", 911));
+        // Polcode_Log::logException(new Exception("exception test new", 911));
+        
         
     }
 }

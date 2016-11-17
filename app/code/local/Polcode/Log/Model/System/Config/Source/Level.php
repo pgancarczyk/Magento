@@ -3,7 +3,7 @@ class Polcode_Log_Model_System_Config_Source_Level
 {
     public function toOptionArray()
     {
-        $reflection = new ReflectionClass('Zend_Log');
+        $reflection = $this->_getReflectionClass();
         $options = array();
         foreach ($reflection->getConstants() as $label => $code)
         {
@@ -14,7 +14,7 @@ class Polcode_Log_Model_System_Config_Source_Level
     
     public function toArray()
     {
-        $reflection = new ReflectionClass('Zend_Log');
+        $reflection = $this->_getReflectionClass();
         $options = array();
         foreach ($reflection->getConstants() as $label => $code)
         {
@@ -22,4 +22,10 @@ class Polcode_Log_Model_System_Config_Source_Level
         }
         return $options;        
     }
+    
+    private function _getReflectionClass()
+    {
+        return new ReflectionClass('Zend_Log');
+    }
+    
 }

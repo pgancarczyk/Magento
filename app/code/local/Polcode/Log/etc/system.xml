@@ -2,7 +2,7 @@
     <sections>
         <dev>
             <groups>
-                <db_logs module="sales">
+                <db_logs>
                     <label>Database logs</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1</sort_order>
@@ -46,6 +46,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>                                 
                         </archivize_every>
+                        <emails>
+                            <label>Send notifications</label>
+                            <frontend_model>polcode_log/config_email</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </emails>                 
                     </fields>
                     <expanded>1</expanded>                   
                 </db_logs>

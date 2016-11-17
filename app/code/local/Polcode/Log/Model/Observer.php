@@ -10,7 +10,7 @@ class Polcode_Log_Model_Observer {
             $minutes_since_last_job = $this->_getMinutesSinceLastJob();
             $archivize_every = Mage::getStoreConfig('dev/db_logs/archivize_every');
 
-            if($archivize_every < $minutes_since_last_job) {
+            if($archivize_every < $minutes_since_last_job + 1) {
                 return $this->_archivize();
             }
             else {

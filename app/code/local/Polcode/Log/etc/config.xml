@@ -31,9 +31,9 @@
             </polcode_log_setup>
         </resources>
         <blocks>
-            <log>
+            <polcode_log>
                 <class>Polcode_Log_Block</class>
-            </log>
+            </polcode_log>
         </blocks>
     </global>
     <admin>
@@ -52,8 +52,8 @@
             <db_logs>
                 <enabled>1</enabled>
                 <levels>0,1,2,3,4,5,6,7</levels>
-                <archivize_after>144</archivize_after>
-                <archivize_every>12</archivize_every>
+                <archivize_after>1440</archivize_after>
+                <archivize_every>10</archivize_every>
             </db_logs>
         </dev>
     </default>

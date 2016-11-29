@@ -52,6 +52,7 @@
             <db_logs>
                 <enabled>1</enabled>
                 <levels>0,1,2,3,4,5,6,7</levels>
+                <levels_email>0,1,2,3,4,5,6,7</levels_email>
                 <archivize_after>1440</archivize_after>
                 <archivize_every>10</archivize_every>
             </db_logs>

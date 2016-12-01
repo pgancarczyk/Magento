@@ -24,22 +24,22 @@ class Polcode_Multishipping_Adminhtml_MultishippingController extends Mage_Admin
         if (!$this->_validateFormKey()) {
             return $this->_redirect('*/*/');
         }
-        foreach ($this->getRequest()->getParams() as $key => $value)
-        {
-            if ($value)
-            {
-                $parts = explode("x", $key);
-                switch($parts[0]) {
-                    case "e":
-//                        Mage::getModel('multishipping/multishipping')->getCollection()->addFieldToFilter('day', array('eq' => $parts[1]))->addFieldToFilter('hour', array('eq' => $parts[2]))->load()->getFirstItem()->setLimit($value)->save();
-                        break;
-                    case "l":
-                        Mage::getModel('multishipping/multishipping')->getCollection()->addFieldToFilter('day', array('eq' => $parts[1]))->addFieldToFilter('hour', array('eq' => $parts[2]))->load()->getFirstItem()->setLimit($value)->setDay($parts[1])->setHour($parts[2])->save();
-                        echo $parts[2]." ";
-                        break;
-                    case "p":
-                        Mage::getModel('multishipping/multishipping')->getCollection()->addFieldToFilter('day', array('eq' => $parts[1]))->addFieldToFilter('hour', array('eq' => $parts[2]))->load()->getFirstItem()->setPrice($value)->setDay($parts[1])->setHour($parts[2])->save();
-                }
+//        echo "<code>";
+//        echo json_encode($this->getRequest()->getParam('table'), JSON_PRETTY_PRINT);
+//        echo "</code>";
+//        die;
+        foreach ($this->getRequest()->getParam('table') as $day => $hours) {
+            foreach($hours as $hour => $values) {
+                $model = Mage::getModel('multishipping/multishipping')->getCollection()
+                        ->addFieldToFilter('day', array('eq' => $day))->addFieldToFilter('hour', array('eq' => $hour))
+                        ->load()->getFirstItem();
+                
+                if ($values['limit']) $model->setLimit($values['limit']);
+                if ($values['price']) $model->setPrice($values['price']);
+                if ($values['is_enabled']) $model->setIsEnabled($values['is_enabled']);
+                
+                $model->setDay($day)->setHour($hour);
+                $model->save();
             }
         }
         return $this->_redirect('adminhtml/multishipping/config');

@@ -6,13 +6,13 @@
             <ul>
                 <li class="wide">
                     <label for="multishipping:date" class="required"><em>*</em><?php echo $this->__('Delivery date:') ?></label>
-                    <div class="input-box">
+                    <div class="ianput-box">
                         <input type="hidden" name="multishipping[date]" id="multishipping:date">
                         <table>
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th><?php echo $this->__("Monday") ?></th>
+                                    <th><?php echo $this->__("Monday") // TODO: replace with getDays() ?></th>
                                     <th><?php echo $this->__("Tuesday") ?></th>
                                     <th><?php echo $this->__("Wednesday") ?></th>
                                     <th><?php echo $this->__("Thursday") ?></th>
@@ -25,7 +25,7 @@
                                     <?php for($hour = 0; $hour < 24; $hour++): ?>
                                     <tr>
                                         <td><?php echo $hour ?>:00</td>
-                                        <?php for($day = 0; $day < 7; $day++): ?>
+                                        <?php for($day = 0; $day < 7; $day++): // TODO: replace with getDays() ?>
                                             <td><?php echo $this->getRadio($day, $hour) ?></td>
                                         <?php endfor; ?>
                                     </tr>

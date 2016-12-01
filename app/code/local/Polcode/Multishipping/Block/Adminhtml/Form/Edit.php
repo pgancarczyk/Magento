@@ -6,7 +6,7 @@ class Polcode_Multishipping_Block_Adminhtml_Form_Edit extends Mage_Adminhtml_Blo
     public function __construct()
     {
         parent::__construct(); 
-        $this->_objectId = 'dupa8';
+        $this->_objectId = 'dupa8'; // TODO: change it
         $this->_blockGroup = 'multishipping';
         $this->_controller = 'adminhtml_form';
          

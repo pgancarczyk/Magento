@@ -26,12 +26,12 @@ class Polcode_Multishipping_Block_Adminhtml_Calendar extends Mage_Adminhtml_Bloc
     }
     
     public function getDays() {
-        $timestamp = strtotime('today');
+        $timestamp = strtotime('monday this week');
         $days = array();
         for ($i = 0; $i < 7; $i++) {
-            $days[] = array('name' => $this->__(date('l', $timestamp)), 'number' => intval(date('N', $timestamp))-1, 'sufix' => $i ? date('jS', $timestamp): $this->__("today"));
+            $days[] = array('name' => $this->__(date('l', $timestamp)), 'number' => intval(date('N', $timestamp))-1, 'sufix' => $timestamp !== strtotime('today') ? date('jS', $timestamp): $this->__("today"));
             $timestamp = strtotime('+1 day', $timestamp);
         }
         return $days;
-    }
+    }    
 }                                                

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Polcode_Invoice>
+            <version>0.0.1</version>
+        </Polcode_Invoice>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <polcode_invoice>
+                    <file>polcode_invoice.xml</file>
+                </polcode_invoice>
+            </updates>
+        </layout>
+    </frontend>    
+</config>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.0.1">
+    <checkout_onepage_index>
+        <reference name='checkout.onepage.billing'>
+            <block type='checkout/onepage_billing' name='form.additional.info' template='polcode_invoice/checkout/onepage/invoice_field.phtml'></block>
+        </reference>
+    </checkout_onepage_index>
+</layout>
+<!--sales_flat_order_payment additional_data/additional_information-->
+<!--http://stackoverflow.com/questions/34417923/how-to-write-data-to-sales-flat-order-payment-table-in-a-custom-field-->
+<!--/home/pgancarczyk/public_html/magento/app/code/core/Mage/Payment/Model/Method/Checkmo.php-->

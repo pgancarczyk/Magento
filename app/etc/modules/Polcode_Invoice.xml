@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Polcode_Invoice>
+      <active>true</active>
+      <codePool>local</codePool>
+      <depends>
+          <Mage_Shipping />
+      </depends>
+    </Polcode_Invoice>
+  </modules>
+</config>
